@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { CssBaseline } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { fetchProducts } from './actions/productActions';
-import ProductsList from './components/ProductsList';
-import Product from './components/Product'
+import ProductsList from './components/products/ProductsList';
+import Product from './components/products/ProductShow'
 
 class App extends Component {
 

@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
 
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
-import Product from './Product'
+import Product from './ProductShow'
 
 
 
