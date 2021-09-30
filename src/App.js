@@ -4,6 +4,7 @@ import { CssBaseline } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { fetchProducts } from './actions/productActions';
 import ProductsList from './components/ProductsList';
+import Product from './components/Product'
 
 class App extends Component {
 
@@ -24,10 +25,14 @@ render() {
             <Link to="/products">Products</Link>
           </li>
         </ul>
-
+        <Switch>
+        <Route path='/products/:productId'>
+          <Product products={this.props.products} />
+        </Route>
         <Route path='/products'>
           <ProductsList products={this.props.products} loading={this.props.loading} />
         </Route>
+        </Switch>
 
       </div>
     </Router>
