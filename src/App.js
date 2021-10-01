@@ -53,7 +53,6 @@ render() {
 const mapStateToProps = (state) => {
   return {
     products: state.products,
-    loading: state.loading 
   };
 };
 

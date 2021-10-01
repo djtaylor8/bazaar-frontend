@@ -1,10 +1,10 @@
-const usersReducer = (state = { user: null }, action) => {
+const usersReducer = (state = {}, action) => {
     switch (action.type) {
         case 'LOADING_USER':
             return {
                 ...state,
             };
-        case 'UPDATE_USER':
+        case 'CURRENT_USER':
             return {
                 ...state, user: action.user
             }
@@ -13,10 +13,10 @@ const usersReducer = (state = { user: null }, action) => {
             return {
                 ...state,
             };
-            
+
         default:
             return state;
     }
 };
 
-export default productsReducer;
+export default usersReducer;

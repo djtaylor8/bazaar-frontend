@@ -1,6 +1,7 @@
 export const googleLogin = (response) => {
+    return (dispatch) => {
+        dispatch({ type: 'LOADING_USER' });
     const token = response.tokenId
-
     const requestOptions = {
         method: 'POST',
         headers: {
@@ -12,6 +13,9 @@ export const googleLogin = (response) => {
     }
     return fetch('http://localhost:3000/api/v1/auth/request', requestOptions)
     .then(response => response.json())
-    .then(response => console.log(response))
+    .then(responseJSON => 
+        dispatch({ type: 'CURRENT_USER', user: responseJSON })
+        )
+    }
 }
 
