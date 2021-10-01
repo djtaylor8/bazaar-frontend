@@ -5,7 +5,8 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import ListSubheader from '@mui/material/ListSubheader';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
-
+import { Grid } from '@material-ui/core'
+import TemporaryDrawer from '../cart/CartDrawer'
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
 import Product from './ProductShow'
 
@@ -16,10 +17,12 @@ export default function ProductsList(props) {
     const { url, path } = useRouteMatch()
     
   return (
-      <div>
-    <ImageList sx={{ width: 500, height: 500 }}>
+    <div>
+    <Grid container justify="center">
+    <ImageList sx={{ width: 800, height: 600 }}>
       <ImageListItem key="Subheader" cols={2}>
         <ListSubheader component="div">Products</ListSubheader>
+        <TemporaryDrawer />
       </ImageListItem>
       {props.products.map((product) => (
         <ImageListItem key={product.id}>
@@ -45,6 +48,7 @@ export default function ProductsList(props) {
         </ImageListItem>
       ))}
     </ImageList>
+    </Grid> 
 
     <Route path={`${path}/:productId`}>
         <Product products={props.products} />

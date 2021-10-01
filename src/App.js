@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { CssBaseline } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { fetchProducts } from './actions/productActions';
+import { googleLogin } from './actions/sessionActions'
 import ProductsList from './components/products/ProductsList';
 import Product from './components/products/ProductShow'
+import Login from './components/users/Login';
 
 class App extends Component {
 
@@ -22,9 +24,16 @@ render() {
             <Link to="/">Home</Link>
           </li>
           <li>
+            <Link to='/login'>Login</Link>
+          </li>
+          <li>
             <Link to="/products">Products</Link>
           </li>
         </ul>
+        <Route path='/login'>
+          <Login login={this.props.googleLogin}/>
+        </Route>
+
         <Switch>
         <Route path='/products/:productId'>
           <Product products={this.props.products} />
@@ -51,6 +60,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchProducts: () => dispatch(fetchProducts()),
+    googleLogin: (response) => dispatch(googleLogin(response))
   };
 };
 

@@ -10,9 +10,11 @@ function Product(props) {
     const { productId } = useParams()
     const { url, path } = useRouteMatch()
 
-    const product = props.products.find(product => product.id == productId)
+   const handleAddToCart = (e) => {
+        console.log(e.target.parentNode.id)
+    }
 
-    // debugger;
+    const product = props.products.find(product => product.id == productId)
 
     return (
         <div>
@@ -21,7 +23,7 @@ function Product(props) {
                     <ProductImage image={product.image} />
                 </Grid>
                 <Grid item sm={8}>
-                    <ProductInfo product={product} />
+                    <ProductInfo product={product} addToCart={handleAddToCart} />
                 </Grid>
             </Grid>
             
