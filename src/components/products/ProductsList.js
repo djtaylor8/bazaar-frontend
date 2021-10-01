@@ -18,8 +18,9 @@ export default function ProductsList(props) {
     
   return (
     <div>
-    <Grid container justify="center">
-    <ImageList sx={{ width: 800, height: 600 }}>
+    <Grid container>
+      <Grid item xs={9}>
+    <ImageList sx={{ height: 600 }}>
       <ImageListItem key="Subheader" cols={2}>
         <ListSubheader component="div">Products</ListSubheader>
         <TemporaryDrawer />
@@ -48,6 +49,7 @@ export default function ProductsList(props) {
         </ImageListItem>
       ))}
     </ImageList>
+    </Grid>
     </Grid> 
 
     <Route path={`${path}/:productId`}>
