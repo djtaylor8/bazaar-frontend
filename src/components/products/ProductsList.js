@@ -6,7 +6,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@material-ui/core';
-import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, Redirect } from 'react-router-dom';
+import Product from './ProductShow'
+
 
 
 
@@ -17,7 +19,7 @@ export default function ProductsList(props) {
   
   return (
     <div>
-    <Grid container spacing={24}>
+    <Grid container spacing={1}>
     {products.map((product) => (
       <Grid item md={3} key={product.id}>
     <Card sx={{ maxWidth: 345 }}>
@@ -36,13 +38,19 @@ export default function ProductsList(props) {
         </Typography>
       </CardContent>
       <CardActions>
+      <Link to={`${url}/${product.id}`} className="productLinks">
         <Button size="small">Learn More</Button>
+      </Link>
         <Button size="small">Add To Cart</Button>
       </CardActions>
     </Card>
     </Grid>
     ))}
     </Grid>
+
+    <Route path={`${path}/:productId`}>
+       <Product products={products} />
+     </Route>
     </div>
   );
 }

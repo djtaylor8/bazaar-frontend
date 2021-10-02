@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { CssBaseline } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { fetchProducts } from './actions/productActions';
-import { googleLogin } from './actions/sessionActions'
+import { googleLogin } from './actions/sessionActions';
+import { addToCart } from './actions/cartActions';
 import ProductsList from './components/products/ProductsList';
 import Product from './components/products/ProductShow'
 import Login from './components/users/Login';
@@ -15,6 +16,7 @@ class App extends Component {
   }
 
 render() {
+  // debugger;
   return (
     <Router>
       <div>
@@ -36,7 +38,7 @@ render() {
 
         <Switch>
         <Route path='/products/:productId'>
-          <Product products={this.props.products} />
+          <Product products={this.props.products} addToCart={this.props.addToCart} />
         </Route>
         <Route path='/products'>
           <ProductsList products={this.props.products} loading={this.props.loading} />
@@ -53,13 +55,15 @@ render() {
 const mapStateToProps = (state) => {
   return {
     products: state.products,
+    user: state.user
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchProducts: () => dispatch(fetchProducts()),
-    googleLogin: (response) => dispatch(googleLogin(response))
+    googleLogin: (response) => dispatch(googleLogin(response)),
+    addToCart: (id) => dispatch(addToCart(id))
   };
 };
 

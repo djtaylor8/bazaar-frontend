@@ -1,4 +1,7 @@
-const usersReducer = (state = {}, action) => {
+const usersReducer = (state = {
+    token: '',
+    user: {}
+}, action) => {
     switch (action.type) {
         case 'LOADING_USER':
             return {
@@ -6,7 +9,9 @@ const usersReducer = (state = {}, action) => {
             };
         case 'CURRENT_USER':
             return {
-                ...state, user: action.user
+                ...state,
+                token: action.user.google_token, 
+                user: action.user
             }
 
         case 'LOGIN':

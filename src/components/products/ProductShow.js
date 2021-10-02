@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ProductImage from './ProductImage';
 import ProductInfo from './ProductInfo';
 
@@ -8,13 +8,15 @@ import ProductInfo from './ProductInfo';
 function Product(props) {
 
     const { productId } = useParams()
-    const { url, path } = useRouteMatch()
+    // const { url, path } = useRouteMatch()
+    const { products } = props.products
 
    const handleAddToCart = (e) => {
-        console.log(e.target.parentNode.id)
+        // console.log(e.target.parentNode.id)
+        props.addToCart(e.target.parentNode.id)
     }
 
-    const product = props.products.find(product => product.id == productId)
+    const product = products.find(product => product.id == productId)
 
     return (
         <div>
