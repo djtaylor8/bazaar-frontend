@@ -3,9 +3,9 @@ import React from 'react';
 const Cart = (props) => {
     const { cart, products } = props
 
-    debugger;
+    // debugger;
 
-    const itemsPrice = cart.reduce((a, c) => a + c.price, 0);
+    const itemsPrice = cart.reduce((a, c) => a + c.quantity * c.price, 0);
 
     return (
         <div>
@@ -18,7 +18,7 @@ const Cart = (props) => {
                         <button> - </button>{' '}
                         <button> + </button> 
                     </div>
-                    {/* <div>{product.quantity} x {product.price.toFixed(2)} */}
+                    <div>{product.quantity} x {product.price.toFixed(2)} </div>
                 </div>
             ))}
             {cart.length !== 0 && (

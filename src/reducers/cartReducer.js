@@ -1,7 +1,3 @@
-// const initialState = {
-//     addedProducts: [],
-// }
-
 const cartReducer = (state = [], action) => {
     switch (action.type) {
 
@@ -11,11 +7,20 @@ const cartReducer = (state = [], action) => {
             ]
 
         case 'ADD_TO_CART':
-            debugger;
-            return [
-                ...state,
-                action.product
-            ]
+            let checkCartForProduct = state.find(product => product.id === action.product.id)
+            // debugger;
+            if (checkCartForProduct) {
+                checkCartForProduct.quantity += 1
+                return [
+                    ...state, 
+                ]
+            } else {
+                action.product.quantity = 1;
+                return [
+                    ...state,
+                    action.product
+                ]
+            }
     
         default:
         return state;
