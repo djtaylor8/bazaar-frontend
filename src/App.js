@@ -8,11 +8,14 @@ import { addToCart } from './actions/cartActions';
 import ProductsList from './components/products/ProductsList';
 import Product from './components/products/ProductShow'
 import Login from './components/users/Login';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import CartDrawer from './components/cart/CartDrawer';
 
 class App extends Component {
 
   componentDidMount() {
     this.props.fetchProducts();
+    // localStorage.clear();
   }
 
 render() {
@@ -31,9 +34,18 @@ render() {
           <li>
             <Link to="/products">Products</Link>
           </li>
+          <li>
+            <Link to="/cart">
+            <ShoppingBasketIcon />
+            </Link>
+          </li>
         </ul>
         <Route path='/login'>
           <Login login={this.props.googleLogin}/>
+        </Route>
+
+        <Route path="/cart">
+          <CartDrawer cart={this.props.cart} products={this.props.products}/>
         </Route>
 
         <Switch>

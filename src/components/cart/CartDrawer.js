@@ -9,8 +9,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import Cart from './Cart'
 
-export default function TemporaryDrawer() {
+export default function CartDrawer(props) {
   const [state, setState] = React.useState({
     right: false,
   });
@@ -35,7 +36,7 @@ export default function TemporaryDrawer() {
       </List>
       <Divider />
       <List>
-            Someday this will be a cart...
+            <Cart cart={props.cart} products={props.products} />
       </List>
     </Box>
   );

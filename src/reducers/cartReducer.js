@@ -1,23 +1,22 @@
-const initialState = {
-    addedProducts: [],
-}
+// const initialState = {
+//     addedProducts: [],
+// }
 
-const cartReducer = (state = initialState, action) => {
+const cartReducer = (state = [], action) => {
     switch (action.type) {
 
         case 'LOADING_CART':
-            return {
+            return [
                 ...state
-            }
+            ]
 
         case 'ADD_TO_CART':
             debugger;
-            return {
+            return [
                 ...state,
-                addedProducts: action.products
-            }
+                action.product
+            ]
     
-
         default:
         return state;
     }
