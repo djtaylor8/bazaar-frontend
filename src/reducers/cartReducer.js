@@ -1,6 +1,5 @@
 const initialState = {
     addedProducts: [],
-    // total: 0
 }
 
 const cartReducer = (state = initialState, action) => {
@@ -12,9 +11,10 @@ const cartReducer = (state = initialState, action) => {
             }
 
         case 'ADD_TO_CART':
+            debugger;
             return {
                 ...state,
-                addedProducts: [...state, action.product]
+                addedProducts: action.product
             }
     
 

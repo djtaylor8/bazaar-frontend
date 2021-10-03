@@ -16,7 +16,7 @@ class App extends Component {
   }
 
 render() {
-  // debugger;
+  debugger;
   return (
     <Router>
       <div>
@@ -55,7 +55,8 @@ render() {
 const mapStateToProps = (state) => {
   return {
     products: state.products,
-    user: state.user
+    user: state.user,
+    cart: state.cart
   };
 };
 

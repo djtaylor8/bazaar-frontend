@@ -14,6 +14,8 @@ export const addToCart = (id) => {
     }
     return fetch(`http://localhost:3000/api/v1/carts/${user.cart.id}`, requestOptions)
     .then(response => response.json())
-    .then((responseJSON) => console.log(responseJSON))
+    .then((responseJSON) => {
+        dispatch({ type: 'ADD_TO_CART', product: responseJSON.cart.cart_products})
+    })
     }
 }
