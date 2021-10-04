@@ -5,6 +5,7 @@ import { Elements } from '@stripe/react-stripe-js';
 const stripePromise = loadStripe('pk_test_51Jgz9oGhEFVdImpM3RqeKYC6FRh1gotgx5E2b6TcOcjQtpiwhdubvY2KxeGHKhRaqj7B0tRDhulVy5r2WFwUBLfx00Dp5GdUy5')
 
 const Checkout = () => {
+
     return (
         <div>
         <Elements stripe={stripePromise}>

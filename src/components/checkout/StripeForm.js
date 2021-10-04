@@ -3,6 +3,31 @@ import { withRouter } from 'react-router-dom';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 
 const StripeForm = () => {
+
+    const CARD_OPTIONS = {
+        iconStyle: "solid",
+        style: {
+          base: {
+            iconColor: "#c4f0ff",
+            color: "#000",
+            fontWeight: 500,
+            fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+            fontSize: "16px",
+            fontSmoothing: "antialiased",
+            ":-webkit-autofill": {
+              color: "#fce883"
+            },
+            "::placeholder": {
+              color: "#87bbfd"
+            }
+          },
+          invalid: {
+            iconColor: "#ffc7ee",
+            color: "#ffc7ee"
+          }
+        }
+      };
+
     const elements = useElements();
     const stripe = useStripe();
 
@@ -38,10 +63,9 @@ const StripeForm = () => {
 
     return (
         <div>
-            <h1>Card</h1>
             <form id="payment-form" onSubmit={handleSubmit}>
-                <label htmlFor="card-element">Card</label>
-                <CardElement id="card-element" />
+                <label htmlFor="card-element">Enter Card Info</label>
+                <CardElement id="card-element" options={CARD_OPTIONS} />
                 <button>Pay</button>
             </form>
         </div>
