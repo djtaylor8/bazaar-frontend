@@ -11,6 +11,8 @@ import Login from './components/users/Login';
 import Logout from './components/users/Logout';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import CartDrawer from './components/cart/CartDrawer';
+import AuthRoute from './components/auth/AuthRoute';
+import NavBar from './components/navigation/NavBar';
 
 class App extends Component {
 
@@ -25,7 +27,8 @@ render() {
     <Router>
       <div>
         <CssBaseline />
-        <ul>
+        <NavBar />
+        {/* <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -46,10 +49,10 @@ render() {
             <ShoppingBasketIcon />
             </Link>
           </li>
-        </ul>
-        <Route path='/login'>
+        </ul> */}
+        {/* <Route path='/login'>
           <Login login={this.props.googleLogin}/>
-        </Route>
+        </Route> */}
     
         <Route path='/logout'>
           <Logout logout={this.props.logout}/>
@@ -60,6 +63,11 @@ render() {
         </Route>
 
         <Switch>
+          <AuthRoute path='/login' type='guest'>
+            <Login login={this.props.googleLogin} />
+          </AuthRoute>
+          <AuthRoute path='/cart' type='private'/>
+        
         <Route path='/products/:productId'>
           <Product products={this.props.products} addToCart={this.props.addToCart} />
         </Route>
