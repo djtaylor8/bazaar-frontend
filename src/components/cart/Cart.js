@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '@mui/material/Button';
+import Checkout from '../checkout/Checkout'
 
 
 const Cart = (props) => {
@@ -36,6 +37,8 @@ const Cart = (props) => {
                     Total Price 
                 </div>
                 <div>${itemsPrice.toFixed(2)}</div>
+                
+                <Checkout />
                 </>
             )}
         </div>

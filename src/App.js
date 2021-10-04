@@ -15,9 +15,9 @@ import AuthRoute from './components/auth/AuthRoute';
 import NavBar from './components/navigation/NavBar';
 import StripeForm from './components/checkout/StripeForm';
 
-import { loadStripe } from '@stripe/stripe-js'
-import { Elements } from '@stripe/react-stripe-js';
-const stripePromise = loadStripe('pk_test_51Jgz9oGhEFVdImpM3RqeKYC6FRh1gotgx5E2b6TcOcjQtpiwhdubvY2KxeGHKhRaqj7B0tRDhulVy5r2WFwUBLfx00Dp5GdUy5')
+// import { loadStripe } from '@stripe/stripe-js'
+// import { Elements } from '@stripe/react-stripe-js';
+// const stripePromise = loadStripe('pk_test_51Jgz9oGhEFVdImpM3RqeKYC6FRh1gotgx5E2b6TcOcjQtpiwhdubvY2KxeGHKhRaqj7B0tRDhulVy5r2WFwUBLfx00Dp5GdUy5')
 
 class App extends Component {
 
@@ -42,9 +42,9 @@ render() {
             </Link>
           </li>
 
-        <Elements stripe={stripePromise}>
+        {/* <Elements stripe={stripePromise}>
         <StripeForm />
-        </Elements>
+        </Elements> */}
 
         <Route path='/logout'>
           <Logout logout={this.props.logout}/>

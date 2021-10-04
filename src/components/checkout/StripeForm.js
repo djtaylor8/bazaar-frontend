@@ -40,7 +40,7 @@ const StripeForm = () => {
         <div>
             <h1>Card</h1>
             <form id="payment-form" onSubmit={handleSubmit}>
-                <label htmlForm="card-element">Card</label>
+                <label htmlFor="card-element">Card</label>
                 <CardElement id="card-element" />
                 <button>Pay</button>
             </form>
