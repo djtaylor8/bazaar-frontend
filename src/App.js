@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 import { CssBaseline } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { fetchProducts } from './actions/productActions';
@@ -18,7 +18,6 @@ class App extends Component {
 
   componentDidMount() {
     this.props.fetchProducts();
-    // localStorage.clear();
   }
 
 render() {
@@ -64,8 +63,11 @@ render() {
 
         <Switch>
           <AuthRoute path='/login' type='guest'>
+            {this.props.user.isAuth ? <Redirect to='/' /> :
             <Login login={this.props.googleLogin} />
+            }
           </AuthRoute>
+          
           <AuthRoute path='/cart' type='private'/>
         
         <Route path='/products/:productId'>
