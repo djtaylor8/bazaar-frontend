@@ -7,8 +7,6 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import Cart from './Cart'
 
 export default function CartDrawer(props) {
@@ -36,7 +34,7 @@ export default function CartDrawer(props) {
       </List>
       <Divider />
       <List>
-            <Cart cart={props.cart} products={props.products} removeFromCart={props.removeFromCart} />
+            <Cart cart={props.cart} products={props.products} removeFromCart={props.removeFromCart} addToCart={props.addToCart}/>
       </List>
     </Box>
   );

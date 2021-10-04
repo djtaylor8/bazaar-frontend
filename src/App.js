@@ -45,7 +45,7 @@ render() {
         </Route>
 
         <Route path="/cart">
-          <CartDrawer cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart}/>
+          <CartDrawer cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart}/>
         </Route>
 
         <Switch>

@@ -13,6 +13,10 @@ const Cart = (props) => {
         props.removeFromCart(e.target.id)
     }
 
+    const handleAdd = (e) => {
+        props.addToCart(e.target.id)
+    }
+
     return (
         <div>
             <h3>Cart</h3>
@@ -21,9 +25,9 @@ const Cart = (props) => {
                 <div key={product.id}>
                     {product.name}
                     <div>
-                        <Button variant="contained" size="small">-</Button>
+                        <Button id={product.id} onClick={(e) => handleRemove(e)} variant="contained" size="small">-</Button>
                         {product.quantity}
-                        <Button variant="contained" size="small">+</Button>
+                        <Button id={product.id} onClick={(e) => handleAdd(e)} variant="contained" size="small">+</Button>
                     </div>
                     <Button id={product.id} onClick={(e) => handleRemove(e) }>Remove</Button>
                 </div>

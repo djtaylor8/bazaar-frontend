@@ -21,8 +21,16 @@ const cartReducer = (state = [], action) => {
                 ]
             };
         case 'REMOVE_FROM_CART':
-            let newCartProducts = state.filter(product => product.id !== action.product.id)
-            return newCartProducts;
+            let productToRemove = state.find(product => product.id === action.product.id)
+            if (productToRemove.quantity === 1) {
+               let newCartProducts = state.filter(product => product.id !== action.product.id)
+               return newCartProducts;
+            } else {
+                productToRemove.quantity -= 1
+                return [
+                    ...state,
+                ]
+            }
         
             
     
