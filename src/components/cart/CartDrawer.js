@@ -8,6 +8,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Cart from './Cart'
+import CloseIcon from '@mui/icons-material/Close';
 
 export default function CartDrawer(props) {
   const [state, setState] = React.useState({
@@ -26,11 +27,11 @@ export default function CartDrawer(props) {
     <Box
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+    //   onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-            Someday this will be a cart..
+        <CloseIcon onClick={toggleDrawer(anchor, false)} />
+        <h3>Cart</h3>
       </List>
       <Divider />
       <List>

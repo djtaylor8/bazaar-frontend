@@ -19,8 +19,7 @@ const Cart = (props) => {
 
     return (
         <div>
-            <h3>Cart</h3>
-            {cart.length === 0 && <div>Cart is empty</div>}
+            {cart.length === 0 && <div>Your cart is empty</div>}
             {cart.map((product) => (
                 <div key={product.id}>
                     {product.name}
