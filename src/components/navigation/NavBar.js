@@ -14,11 +14,11 @@ class NavBar extends Component {
           <div style={{ marginLeft: "auto" }}>
             {this.props.user.isAuth ? (
               <>
-                <Link to="/home">
+                <Link to="/">
                   <Button color="inherit">Home</Button>
                 </Link>
-                <Link to="/my-account">
-                  <Button color="inherit">My Account</Button>
+                <Link to="/my-orders">
+                  <Button color="inherit">Orders</Button>
                 </Link>
                 <Button color="inherit" onClick={this.props.logout}>
                   Logout

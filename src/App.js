@@ -27,19 +27,7 @@ render() {
       <div>
         <CssBaseline />
         <NavBar />
-        {/* <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          {this.props.user.isAuth === true ? 
-            <li>
-              <Link to='/logout'>Logout</Link>
-            </li>
-          :
-            <li>
-              <Link to='/login'>Login</Link>
-            </li>
-          }
+
           <li>
             <Link to="/products">Products</Link>
           </li>
@@ -48,10 +36,6 @@ render() {
             <ShoppingBasketIcon />
             </Link>
           </li>
-        </ul> */}
-        {/* <Route path='/login'>
-          <Login login={this.props.googleLogin}/>
-        </Route> */}
     
         <Route path='/logout'>
           <Logout logout={this.props.logout}/>

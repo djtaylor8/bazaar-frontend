@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import { Redirect, Route } from 'react-router';
 
 const AuthRoute = (props) => {
-    const { isAuth, type } = props;
+    const { user, type } = props;
 
-    if (type === 'guest' && isAuth) return <Redirect to="/" />;
-    else if (type === 'private' && !isAuth) return <Redirect to='/' />;
+    if (type === 'guest' && user.isAuth) return <Redirect to="/" />;
+    else if (type === 'private' && !user.isAuth) return <Redirect to='/' />;
     return <Route {...props} />
 };
 
-const mapStateToProps = ({ isAuth }) => ({
-    isAuth
+const mapStateToProps = ({ user }) => ({
+    user
 });
 
 export default connect(mapStateToProps)(AuthRoute);
