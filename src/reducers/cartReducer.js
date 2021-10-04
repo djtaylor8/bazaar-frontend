@@ -8,7 +8,6 @@ const cartReducer = (state = [], action) => {
 
         case 'ADD_TO_CART':
             let checkCartForProduct = state.find(product => product.id === action.product.id)
-            // debugger;
             if (checkCartForProduct) {
                 checkCartForProduct.quantity += 1
                 return [
@@ -20,7 +19,12 @@ const cartReducer = (state = [], action) => {
                     ...state,
                     action.product
                 ]
-            }
+            };
+        case 'REMOVE_FROM_CART':
+            let newCartProducts = state.filter(product => product.id !== action.product.id)
+            return newCartProducts;
+        
+            
     
         default:
         return state;

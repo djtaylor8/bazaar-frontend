@@ -19,3 +19,25 @@ export const addToCart = (id) => {
     })
     }
 }
+
+export const removeProductFromCart = (id) => {
+    return (dispatch) => {
+        dispatch({ type: 'LOADING_CART' });
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    const requestOptions = {
+        method: 'PATCH',
+        headers: {
+            'Authorization': `Bearer ${user.google_token}`,
+            'Content-Type': 'application/json',
+            'access-token': `${user.google_token}`
+        },
+        body: JSON.stringify({user_id: user.id, product_id: id})
+    }
+    return fetch(`http://localhost:3000/api/v1/carts/${user.cart.id}/remove`, requestOptions)
+    .then(response => response.json())
+    .then((responseJSON) => {
+        dispatch({ type: 'REMOVE_FROM_CART', product: responseJSON })
+    })
+    }
+}

@@ -36,7 +36,7 @@ export default function CartDrawer(props) {
       </List>
       <Divider />
       <List>
-            <Cart cart={props.cart} products={props.products} />
+            <Cart cart={props.cart} products={props.products} removeFromCart={props.removeFromCart} />
       </List>
     </Box>
   );

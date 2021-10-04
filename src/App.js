@@ -4,7 +4,7 @@ import { CssBaseline } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { fetchProducts } from './actions/productActions';
 import { googleLogin } from './actions/sessionActions';
-import { addToCart } from './actions/cartActions';
+import { addToCart, removeProductFromCart } from './actions/cartActions';
 import ProductsList from './components/products/ProductsList';
 import Product from './components/products/ProductShow'
 import Login from './components/users/Login';
@@ -45,7 +45,7 @@ render() {
         </Route>
 
         <Route path="/cart">
-          <CartDrawer cart={this.props.cart} products={this.props.products}/>
+          <CartDrawer cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart}/>
         </Route>
 
         <Switch>
@@ -76,7 +76,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchProducts: () => dispatch(fetchProducts()),
     googleLogin: (response) => dispatch(googleLogin(response)),
-    addToCart: (id) => dispatch(addToCart(id))
+    addToCart: (id) => dispatch(addToCart(id)),
+    removeFromCart: (id) => dispatch(removeProductFromCart(id))
   };
 };
 

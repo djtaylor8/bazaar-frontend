@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from '@mui/material/Button';
+
 
 const Cart = (props) => {
     const { cart, products } = props
@@ -7,18 +9,23 @@ const Cart = (props) => {
 
     const itemsPrice = cart.reduce((a, c) => a + c.quantity * c.price, 0);
 
+    const handleRemove = (e) => {
+        props.removeFromCart(e.target.id)
+    }
+
     return (
         <div>
             <h3>Cart</h3>
             {cart.length === 0 && <div>Cart is empty</div>}
             {cart.map((product) => (
                 <div key={product.id}>
-                    <div>{product.name}</div>
+                    {product.name}
                     <div>
-                        <button> - </button>{' '}
-                        <button> + </button> 
+                        <Button variant="contained" size="small">-</Button>
+                        {product.quantity}
+                        <Button variant="contained" size="small">+</Button>
                     </div>
-                    <div>{product.quantity} x {product.price.toFixed(2)} </div>
+                    <Button id={product.id} onClick={(e) => handleRemove(e) }>Remove</Button>
                 </div>
             ))}
             {cart.length !== 0 && (
