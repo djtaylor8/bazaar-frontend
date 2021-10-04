@@ -14,9 +14,15 @@ export const googleLogin = (response) => {
     return fetch('http://localhost:3000/api/v1/auth/request', requestOptions)
     .then(response => response.json())
     .then((responseJSON) => {
-        dispatch({ type: 'CURRENT_USER', user: responseJSON });
+        dispatch({ type: 'LOGIN', user: responseJSON });
         localStorage.setItem('user', JSON.stringify(responseJSON));
     })
     }
+}
+
+export const logout = () => {
+    return {
+        type: 'LOGOUT',
+    };
 }
 

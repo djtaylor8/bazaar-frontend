@@ -1,23 +1,22 @@
 import React, { useEffect } from 'react';
-import { GoogleLogin } from 'react-google-login';
+import { GoogleLogout } from 'react-google-login';
 import { Grid } from '@material-ui/core'
 
 
 
-const Login = (props) => {
+const Logout = (props) => {
 
-    const responseGoogle = (response) => {
-        props.login(response)
+    const logoutUser = () => {
+        props.logout()
     }
 
     return (
         <div>
         <Grid container justifyContent="center">
-           <GoogleLogin 
+           <GoogleLogout
             clientId='8013933409-b2i0rd6n1i5i67hen1k874pqdjr4oj4r.apps.googleusercontent.com'
-            buttonText='Sign in with Google'
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
+            buttonText='Logout'
+            onLogoutSuccess={logoutUser}
             cookiePolicy={'single_host_origin'}
            /> 
         </Grid>
@@ -26,4 +25,4 @@ const Login = (props) => {
     );
 };
   
-export default Login;
+export default Logout;

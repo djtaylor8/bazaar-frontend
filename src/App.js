@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { CssBaseline } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { fetchProducts } from './actions/productActions';
-import { googleLogin } from './actions/sessionActions';
+import { googleLogin, logout } from './actions/sessionActions';
 import { addToCart, removeProductFromCart } from './actions/cartActions';
 import ProductsList from './components/products/ProductsList';
 import Product from './components/products/ProductShow'
 import Login from './components/users/Login';
+import Logout from './components/users/Logout';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import CartDrawer from './components/cart/CartDrawer';
 
@@ -28,9 +29,15 @@ render() {
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
-            <Link to='/login'>Login</Link>
-          </li>
+          {this.props.user.isAuth === true ? 
+            <li>
+              <Link to='/logout'>Logout</Link>
+            </li>
+          :
+            <li>
+              <Link to='/login'>Login</Link>
+            </li>
+          }
           <li>
             <Link to="/products">Products</Link>
           </li>
@@ -42,6 +49,10 @@ render() {
         </ul>
         <Route path='/login'>
           <Login login={this.props.googleLogin}/>
+        </Route>
+    
+        <Route path='/logout'>
+          <Logout logout={this.props.logout}/>
         </Route>
 
         <Route path="/cart">
@@ -76,6 +87,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchProducts: () => dispatch(fetchProducts()),
     googleLogin: (response) => dispatch(googleLogin(response)),
+    logout: () => dispatch(logout()),
     addToCart: (id) => dispatch(addToCart(id)),
     removeFromCart: (id) => dispatch(removeProductFromCart(id))
   };

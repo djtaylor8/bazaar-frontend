@@ -5,8 +5,6 @@ import Button from '@mui/material/Button';
 const Cart = (props) => {
     const { cart, products } = props
 
-    // debugger;
-
     const itemsPrice = cart.reduce((a, c) => a + c.quantity * c.price, 0);
 
     const handleRemove = (e) => {
