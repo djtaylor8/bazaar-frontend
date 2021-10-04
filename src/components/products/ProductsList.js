@@ -16,6 +16,10 @@ export default function ProductsList(props) {
 
   const { url, path } = useRouteMatch()
   const  { products } = props.products;
+
+  const handleAdd = (e) => {
+    props.addToCart(e.target.id)
+}
   
   return (
     <div>
@@ -41,7 +45,7 @@ export default function ProductsList(props) {
       <Link to={`${url}/${product.id}`} className="productLinks">
         <Button size="small">Learn More</Button>
       </Link>
-        <Button size="small">Add To Cart</Button>
+        <Button id={product.id} size="small" onClick={(e) => handleAdd(e)}>Add To Cart</Button>
       </CardActions>
     </Card>
     </Grid>

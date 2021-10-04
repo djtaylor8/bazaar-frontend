@@ -53,7 +53,7 @@ render() {
           <Product products={this.props.products} addToCart={this.props.addToCart} />
         </Route>
         <Route path='/products'>
-          <ProductsList products={this.props.products} loading={this.props.loading} />
+          <ProductsList products={this.props.products} loading={this.props.loading} addToCart={this.props.addToCart}/>
         </Route>
         </Switch>
 

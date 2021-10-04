@@ -27,7 +27,6 @@ export default function CartDrawer(props) {
     <Box
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
       role="presentation"
-    //   onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
         <CloseIcon onClick={toggleDrawer(anchor, false)} />
