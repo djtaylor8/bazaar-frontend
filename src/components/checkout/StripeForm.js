@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 
-const StripeForm = () => {
+const StripeForm = (props) => {
 
     const CARD_OPTIONS = {
         iconStyle: "solid",
@@ -44,7 +44,9 @@ const StripeForm = () => {
             },
             body: JSON.stringify({
                 paymentMethodType: 'card',
+                amount: `${props.price * 100}`,
                 currency: 'usd',
+                
             }),
         }).then(r => r.json());
 

@@ -38,7 +38,7 @@ const Cart = (props) => {
                 </div>
                 <div>${itemsPrice.toFixed(2)}</div>
                 
-                <Checkout />
+                <Checkout price={itemsPrice.toFixed(2)} />
                 </>
             )}
         </div>
