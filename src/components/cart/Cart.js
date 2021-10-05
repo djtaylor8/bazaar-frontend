@@ -38,7 +38,8 @@ const Cart = (props) => {
                 </div>
                 <div>${itemsPrice.toFixed(2)}</div>
                 
-                <Checkout price={itemsPrice.toFixed(2)} />
+                {/* {MOVE CHECKOUT TO FORM} */}
+                {/* <Checkout price={itemsPrice.toFixed(2)} /> */}
                 </>
             )}
         </div>

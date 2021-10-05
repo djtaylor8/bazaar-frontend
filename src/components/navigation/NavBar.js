@@ -15,14 +15,14 @@ class NavBar extends Component {
           <div style={{ marginLeft: "auto" }}>
             {this.props.user.isAuth ? (
               <>
-                <Link to="/">
+                <Link to="/" style={{ textDecoration: 'none' }}>
                   <Button color="inherit">Home</Button>
                 </Link>
-                <Link to="/products">
+                <Link to="/products" style={{ textDecoration: 'none' }}>
                     <Button color="inherit">Products</Button>
                 </Link>
 
-                <Link to="/my-orders">
+                <Link to="/my-orders" style={{ textDecoration: 'none' }}>
                   <Button color="inherit">Orders</Button>
                 </Link>
                 <CartDrawer cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart}/>
@@ -32,10 +32,10 @@ class NavBar extends Component {
               </>
             ) : (
             <div>
-            <Link to="/products">
+            <Link to="/products" style={{ textDecoration: 'none' }}>
                 <Button color="inherit">Products</Button>
             </Link>
-            <Link to="/login">
+            <Link to="/login" style={{ textDecoration: 'none' }}>
                 <Button color="inherit">Login</Button>
             </Link>
             </div>

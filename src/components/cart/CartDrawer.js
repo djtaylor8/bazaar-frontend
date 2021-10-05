@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
@@ -6,7 +7,6 @@ import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import Cart from './Cart'
 import CloseIcon from '@mui/icons-material/Close';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
@@ -36,7 +36,20 @@ export default function CartDrawer(props) {
       </List>
       <Divider />
       <List>
+          <ListItemIcon>
+          <ListItem>
             <Cart cart={props.cart} products={props.products} removeFromCart={props.removeFromCart} addToCart={props.addToCart}/>
+          </ListItem>
+          </ListItemIcon>
+          {props.cart.length > 0 ? 
+          <ListItemIcon>
+              <ListItem>
+                  <Link to='/checkout' style={{ textDecoration: 'none' }}>
+                  <Button variant="contained" size="small" onClick={toggleDrawer(anchor, false)}>Checkout</Button>
+                  </Link>
+              </ListItem>
+          </ListItemIcon>
+        : null }
       </List>
     </Box>
   );
