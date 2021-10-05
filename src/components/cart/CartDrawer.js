@@ -9,6 +9,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Cart from './Cart'
 import CloseIcon from '@mui/icons-material/Close';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+
 
 export default function CartDrawer(props) {
   const [state, setState] = React.useState({
@@ -43,7 +45,9 @@ export default function CartDrawer(props) {
     <div>
       {['right'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>Cart</Button>
+          <Button onClick={toggleDrawer(anchor, true)}>
+              <ShoppingBasketIcon />
+          </Button>
           <Drawer
             anchor={anchor}
             open={state[anchor]}
