@@ -27,16 +27,16 @@ render() {
 
         <NavBar cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart}/>
 
-        <Route path='/logout'>
-          <Logout logout={this.props.logout}/>
-        </Route>
-
         <Switch>
           <AuthRoute path='/login' type='guest'>
             {this.props.user.isAuth ? <Redirect to='/' /> :
             <Login login={this.props.googleLogin} />
             }
           </AuthRoute>
+
+          <Route path='/logout'>
+            <Logout logout={this.props.logout}/>
+          </Route>
           
           <AuthRoute path='/cart' type='private'/>
         
