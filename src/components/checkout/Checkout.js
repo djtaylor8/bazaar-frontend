@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import StripeForm from './StripeForm'
 import { loadStripe } from '@stripe/stripe-js'

@@ -23,7 +23,7 @@ export default function ProductsList(props) {
   
   return (
     <div>
-    <Grid container spacing={1}>
+    <Grid container spacing={2}>
     {products.map((product) => (
       <Grid item md={3} key={product.id}>
     <Card sx={{ maxWidth: 345 }}>
