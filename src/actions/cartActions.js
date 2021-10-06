@@ -10,7 +10,7 @@ export const addToCart = (id) => {
             'Content-Type': 'application/json',
             'access-token': `${user.google_token}`
         },
-        body: JSON.stringify({user_id: user.id, product_id: id, quantity: 1})
+        body: JSON.stringify({user_id: user.id, product_id: id })
     }
     return fetch(`http://localhost:3000/api/v1/carts/${user.cart.id}`, requestOptions)
     .then(response => response.json())

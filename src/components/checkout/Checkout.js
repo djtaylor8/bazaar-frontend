@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { Grid, Typography, Button } from '@material-ui/core';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -8,9 +9,14 @@ import Cart from '../cart/Cart'
 
 const Checkout = (props) => {
     const { cart } = props
+    const [address, setAddress] = useState('');
+    const [city, setCity] = useState('');
+    const [state, setState] = useState('');
 
     const elements = useElements();
     const stripe = useStripe();
+
+    const user = JSON.parse(localStorage.getItem('user'));
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -25,9 +31,13 @@ const Checkout = (props) => {
             },
             body: JSON.stringify({
                 paymentMethodType: 'card',
-                amount: `${props.price * 100}`,
+                amount: `${cart.total * 100}`,
                 currency: 'usd',
-                
+                user: user,
+                cart_products: cart.addedProducts,
+                address: address,
+                city: city,
+                state: state
             }),
         }).then(r => r.json());
 
@@ -51,19 +61,13 @@ const Checkout = (props) => {
                 <Typography variant='h5'>Shipping Info</Typography>
                 <br></br>
                 <Grid item xs={10}>
-                <TextField fullWidth label="street address">
-
-                </TextField>
+                <TextField fullWidth label="street address" value={address} onChange={e => setAddress(e.target.value)}></TextField>
                 </Grid>
                 <Grid item xs={10}>
-                <TextField fullWidth label='city'>
-                    
-                </TextField>
+                <TextField fullWidth label='city' value={city} onChange={e => setCity(e.target.value)}></TextField>
                 </Grid>
                 <Grid item xs={10}>
-                <TextField fullWidth label='state'>
-                    
-                </TextField>
+                <TextField fullWidth label='state' value={state} onChange={e => setState(e.target.value)}></TextField>
                 </Grid>
                 <br></br>
                 <Typography variant='h5'>Payment</Typography>
@@ -71,10 +75,10 @@ const Checkout = (props) => {
                  <Box sx={{ borderColor: 'text.primary', borderBottom: 1, height: '2rem', marginBottom: '2rem', marginTop: '2rem' }}>
                  <CardElement id="card-element" />
                  </Box>
-                 <Button variant='contained'>Pay</Button>
+                 <Button variant='contained' type='submit'>Pay</Button>
              
                 </form>
-                
+
             </Grid>
             <Grid item sm={4}>
               <Cart cart={cart} products={props.products} removeFromCart={props.removeFromCart} addToCart={props.addToCart}/>
