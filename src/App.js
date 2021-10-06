@@ -75,7 +75,7 @@ const mapDispatchToProps = (dispatch) => {
     googleLogin: (response) => dispatch(googleLogin(response)),
     logout: () => dispatch(logout()),
     addToCart: (id) => dispatch(addToCart(id)),
-    removeFromCart: (id) => dispatch(removeProductFromCart(id))
+    removeFromCart: (id) => dispatch(removeProductFromCart(id)),
   };
 };
 
