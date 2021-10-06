@@ -11,6 +11,7 @@ import Login from './components/users/Login';
 import Logout from './components/users/Logout';
 import AuthRoute from './components/auth/AuthRoute';
 import NavBar from './components/navigation/NavBar';
+import Checkout from './components/checkout/Checkout'
 
 class App extends Component {
 
@@ -33,6 +34,11 @@ render() {
             <Login login={this.props.googleLogin} />
             }
           </AuthRoute>
+
+
+          <Route path='/checkout'>
+            <Checkout />
+          </Route>
 
           <Route path='/logout'>
             <Logout logout={this.props.logout}/>
