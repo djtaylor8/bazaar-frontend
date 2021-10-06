@@ -1,13 +1,11 @@
 import React from 'react';
 import Button from '@mui/material/Button';
-import Checkout from '../checkout/Checkout'
 
 
 const Cart = (props) => {
-    const { cart, products } = props
-
-    const itemsPrice = cart.reduce((a, c) => a + c.quantity * c.price, 0);
-
+    const { cart } = props
+    // debugger;
+    
     const handleRemove = (e) => {
         props.removeFromCart(e.target.id)
     }
@@ -18,28 +16,24 @@ const Cart = (props) => {
 
     return (
         <div>
-            {cart.length === 0 && <div>Your cart is empty</div>}
-            {cart.map((product) => (
+            {cart.addedProducts.length === 0 && <div>Your cart is empty</div>}
+            {cart.addedProducts.map((product) => (
                 <div key={product.id}>
                     {product.name}
+                    <div>Qty: {product.quantity}</div>
                     <div>
-                        <Button id={product.id} onClick={(e) => handleRemove(e)} variant="contained" size="small">-</Button>
-                        {product.quantity}
-                        <Button id={product.id} onClick={(e) => handleAdd(e)} variant="contained" size="small">+</Button>
+                    <Button id={product.id} onClick={(e) => handleAdd(e)} variant="contained" size="small">+</Button>
+                    <Button id={product.id} onClick={(e) => handleRemove(e)} variant="contained" size="small">-</Button>
                     </div>
-                    <Button id={product.id} onClick={(e) => handleRemove(e) }>Remove</Button>
                 </div>
             ))}
-            {cart.length !== 0 && (
+            {cart.addedProducts.length !== 0 && (
                 <>
                 <hr></hr>
                 <div>
                     Total Price 
                 </div>
-                <div>${itemsPrice.toFixed(2)}</div>
-                
-                {/* {MOVE CHECKOUT TO FORM} */}
-                {/* <Checkout price={itemsPrice.toFixed(2)} /> */}
+                <div id='cart-total'>${cart.total.toFixed(2)}</div>
                 </>
             )}
         </div>

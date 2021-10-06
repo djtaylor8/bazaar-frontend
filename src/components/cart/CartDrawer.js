@@ -13,6 +13,9 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
 
 export default function CartDrawer(props) {
+
+    const { cart } = props
+
   const [state, setState] = React.useState({
     right: false,
   });
@@ -38,10 +41,10 @@ export default function CartDrawer(props) {
       <List>
           <ListItemIcon>
           <ListItem>
-            <Cart cart={props.cart} products={props.products} removeFromCart={props.removeFromCart} addToCart={props.addToCart}/>
+            <Cart cart={cart} products={props.products} removeFromCart={props.removeFromCart} addToCart={props.addToCart}/>
           </ListItem>
           </ListItemIcon>
-          {props.cart.length > 0 ? 
+          {cart.addedProducts.length > 0 ? 
           <ListItemIcon>
               <ListItem>
                   <Link to='/checkout' style={{ textDecoration: 'none' }}>

@@ -37,7 +37,7 @@ render() {
 
 
           <Route path='/checkout'>
-            <Checkout />
+            <Checkout cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart} />
           </Route>
 
           <Route path='/logout'>

@@ -6,7 +6,7 @@ import { Typography, Button } from '@material-ui/core';
 
 
 const StripeForm = (props) => {
-
+debugger;
     const elements = useElements();
     const stripe = useStripe();
 
@@ -45,7 +45,7 @@ const StripeForm = (props) => {
     return (
         <div>
             <form id="payment-form" onSubmit={handleSubmit}>
-                <Box sx={{ borderColor: 'text.primary', borderBottom: 1, height: '2rem', margin: '2rem' }}>
+                <Box sx={{ borderColor: 'text.primary', borderBottom: 1, height: '2rem', marginBottom: '2rem', marginTop: '2rem' }}>
                 <CardElement id="card-element" />
                 </Box>
                 <Button variant='contained'>Pay</Button>

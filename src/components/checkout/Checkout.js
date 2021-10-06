@@ -4,9 +4,13 @@ import TextField from '@mui/material/TextField';
 import StripeForm from './StripeForm'
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js';
+import Cart from '../cart/Cart'
+
 const stripePromise = loadStripe('pk_test_51Jgz9oGhEFVdImpM3RqeKYC6FRh1gotgx5E2b6TcOcjQtpiwhdubvY2KxeGHKhRaqj7B0tRDhulVy5r2WFwUBLfx00Dp5GdUy5')
 
+
 const Checkout = (props) => {
+    const { cart } = props
 
     return (
         <div>
@@ -30,13 +34,15 @@ const Checkout = (props) => {
                     
                 </TextField>
                 </Grid>
+                <br></br>
+                <Typography variant='h5'>Payment</Typography>
                <Elements stripe={stripePromise}>
-                 <StripeForm price={props.price} />
+                 <StripeForm price={cart.total} />
                </Elements>  
              </form>
             </Grid>
             <Grid item sm={4}>
-                Soon to be cart...
+              <Cart cart={cart} products={props.products} removeFromCart={props.removeFromCart} addToCart={props.addToCart}/>
             </Grid>
             </Grid> 
         </div>
