@@ -43,6 +43,12 @@ const cartReducer = (state = {
                     total: newTotal
                 }
             }
+        case 'CLEAR_CART':
+            return {
+                ...state,
+                addedProducts: [],
+                total: 0
+            }
     
         default:
         return state;

@@ -4,7 +4,7 @@ import { CssBaseline } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { fetchProducts } from './actions/productActions';
 import { googleLogin, logout } from './actions/sessionActions';
-import { addToCart, removeProductFromCart } from './actions/cartActions';
+import { addToCart, removeProductFromCart, clearCart } from './actions/cartActions';
 import { addOrder } from './actions/orderActions';
 import ProductsList from './components/products/ProductsList';
 import Product from './components/products/ProductShow'
@@ -38,7 +38,7 @@ render() {
 
 
           <Route path='/checkout'>
-            <Checkout cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart} addOrder={this.props.addOrder} />
+            <Checkout cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart} addOrder={this.props.addOrder} clearCart={this.props.clearCart} />
           </Route>
 
           <Route path='/logout'>
@@ -78,7 +78,8 @@ const mapDispatchToProps = (dispatch) => {
     logout: () => dispatch(logout()),
     addToCart: (id) => dispatch(addToCart(id)),
     removeFromCart: (id) => dispatch(removeProductFromCart(id)),
-    addOrder: (order) => dispatch(addOrder(order))
+    addOrder: (order) => dispatch(addOrder(order)),
+    clearCart: () => dispatch(clearCart())
   };
 };
 

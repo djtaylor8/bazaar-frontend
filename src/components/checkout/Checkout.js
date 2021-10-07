@@ -46,9 +46,10 @@ const Checkout = (props) => {
                     card: elements.getElement(CardElement),
                 }
             })
-            
+
             if (paymentIntent){
                 props.addOrder(order)
+                props.clearCart()
                 elements.getElement(CardElement).clear()
                 setAddress('')
                 setCity('')

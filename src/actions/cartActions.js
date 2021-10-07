@@ -41,3 +41,9 @@ export const removeProductFromCart = (id) => {
     })
     }
 }
+
+export const clearCart = () => {
+    return {
+        type: 'CLEAR_CART'
+    };
+}
