@@ -13,6 +13,7 @@ import Logout from './components/users/Logout';
 import AuthRoute from './components/auth/AuthRoute';
 import NavBar from './components/navigation/NavBar';
 import Checkout from './components/checkout/Checkout'
+import Orders from './components/orders/Orders';
 
 class App extends Component {
 
@@ -40,6 +41,10 @@ render() {
           <AuthRoute path='/checkout' type='private'>
             <Checkout cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart} addOrder={this.props.addOrder} clearCart={this.props.clearCart} />
           </AuthRoute>
+
+          <Route path='/my-orders'>
+            <Orders user={this.props.user} />
+          </Route>
 
           <Route path='/logout'>
             <Logout logout={this.props.logout}/>

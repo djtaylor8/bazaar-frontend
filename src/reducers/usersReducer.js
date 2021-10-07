@@ -1,6 +1,7 @@
 const usersReducer = (state = {
     isAuth: !!localStorage.getItem('user'),
     user: JSON.parse(localStorage.getItem('user')) || {},
+    orderHistory: []
 }, action) => {
     switch (action.type) {
         case 'LOADING_USER':
@@ -11,14 +12,16 @@ const usersReducer = (state = {
             return {
                 ...state,
                 isAuth: true,
-                user: action.user
+                user: action.user,
+                orderHistory: action.user.orders
             };
         case 'LOGOUT':
             localStorage.removeItem('user');
             return {
                 ...state,
                 isAuth: false,
-                user: {}
+                user: {},
+                orderHistory: []
             }
 
         default:
