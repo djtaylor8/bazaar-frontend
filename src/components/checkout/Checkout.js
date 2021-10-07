@@ -24,7 +24,7 @@ const Checkout = (props) => {
             return;
         }
 
-        const {clientSecret} = await fetch('http://localhost:3000/api/v1/create-payment-intent', {
+        const {clientSecret, order} = await fetch('http://localhost:3000/api/v1/create-payment-intent', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -34,12 +34,11 @@ const Checkout = (props) => {
                 amount: `${cart.total * 100}`,
                 currency: 'usd',
                 user: user,
-                cart_products: cart.addedProducts,
                 address: address,
                 city: city,
                 state: state
             }),
-        }).then(r => r.json());
+        }).then(r => r.json())
 
         const {paymentIntent} = await stripe.confirmCardPayment(
             clientSecret, {
@@ -47,8 +46,13 @@ const Checkout = (props) => {
                     card: elements.getElement(CardElement),
                 }
             })
+            
             if (paymentIntent){
+                props.addOrder(order)
                 elements.getElement(CardElement).clear()
+                setAddress('')
+                setCity('')
+                setState('')
             }
         alert('Thank you for your payment!')
     }
