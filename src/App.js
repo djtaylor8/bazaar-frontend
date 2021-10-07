@@ -37,9 +37,9 @@ render() {
           </AuthRoute>
 
 
-          <Route path='/checkout'>
+          <AuthRoute path='/checkout' type='private'>
             <Checkout cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart} addOrder={this.props.addOrder} clearCart={this.props.clearCart} />
-          </Route>
+          </AuthRoute>
 
           <Route path='/logout'>
             <Logout logout={this.props.logout}/>
