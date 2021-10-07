@@ -18,8 +18,6 @@ export default function OrdersHistory(props) {
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
         >
           <Typography>Order No. {order.id} - {moment(`${order.created_at}`).format('M/DD/YYYY')}</Typography>
         </AccordionSummary>

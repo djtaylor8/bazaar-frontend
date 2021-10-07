@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { AppBar, Toolbar, Button, Typography } from "@material-ui/core";
 import { connect } from "react-redux";
@@ -6,14 +6,14 @@ import CartDrawer from '../cart/CartDrawer';
 
 import { logout } from "../../actions/sessionActions";
 
-class NavBar extends Component {
-  render() {
+const  NavBar = (props) => {
+
     return (
       <AppBar position="static" style={{ display: "flex" }}>
         <Toolbar>
           <Typography variant="h6">Bazaar</Typography>
           <div style={{ marginLeft: "auto" }}>
-            {this.props.user.isAuth ? (
+            {props.user.isAuth ? (
               <>
                 <Link to="/" style={{ textDecoration: 'none' }}>
                   <Button color="inherit">Home</Button>
@@ -25,8 +25,8 @@ class NavBar extends Component {
                 <Link to="/my-orders" style={{ textDecoration: 'none' }}>
                   <Button color="inherit">Orders</Button>
                 </Link>
-                <CartDrawer cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart}/>
-                <Button color="inherit" onClick={this.props.logout}>
+                <CartDrawer cart={props.cart} products={props.products} removeFromCart={props.removeFromCart} addToCart={props.addToCart}/>
+                <Button color="inherit" onClick={props.logout}>
                   Logout
                 </Button>
               </>
@@ -45,7 +45,6 @@ class NavBar extends Component {
       </AppBar>
     );
   }
-}
 
 export default connect(({ user }) => ({ user }), { logout })(
   NavBar
