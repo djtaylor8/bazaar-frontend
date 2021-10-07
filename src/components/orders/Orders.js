@@ -9,11 +9,11 @@ import moment from 'moment'
 export default function Orders(props) {
 
     const { orderHistory } = props.user
-    debugger;
+    // debugger;
 
   return (
     <div>
-    {orderHistory.map((order) => (
+    {orderHistory.reverse().map((order) => (
     <div key={order.id}>
       <Accordion>
         <AccordionSummary
@@ -26,12 +26,11 @@ export default function Orders(props) {
         <AccordionDetails>
           <Typography>
             <div>Order Total: ${(order.total/100).toFixed(2)}</div>
+            <hr></hr>
             <div>
-                Shipping Address
-                <hr></hr>
+                Shipping Address:
                 <div>{order.address}</div>
-                <div>{order.city}</div>
-                <div>{order.state}</div>
+                <div>{order.city}, {order.state}</div>
             </div>
           </Typography>
         </AccordionDetails>
