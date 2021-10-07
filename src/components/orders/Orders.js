@@ -4,6 +4,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import moment from 'moment'
 
 export default function Orders(props) {
 
@@ -20,12 +21,18 @@ export default function Orders(props) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>${(order.total/100).toFixed(2)}</Typography>
+          <Typography>Order No. {order.id} - {moment(`${order.created_at}`).format('M/DD/YYYY')}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+            <div>Order Total: ${(order.total/100).toFixed(2)}</div>
+            <div>
+                Shipping Address
+                <hr></hr>
+                <div>{order.address}</div>
+                <div>{order.city}</div>
+                <div>{order.state}</div>
+            </div>
           </Typography>
         </AccordionDetails>
       </Accordion>
