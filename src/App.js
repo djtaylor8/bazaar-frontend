@@ -13,7 +13,7 @@ import Logout from './components/users/Logout';
 import AuthRoute from './components/auth/AuthRoute';
 import NavBar from './components/navigation/NavBar';
 import Checkout from './components/checkout/Checkout'
-import Orders from './components/orders/Orders';
+import OrdersHistory from './components/orders/Orders';
 
 class App extends Component {
 
@@ -43,7 +43,7 @@ render() {
           </AuthRoute>
 
           <Route path='/my-orders'>
-            <Orders user={this.props.user} />
+            <OrdersHistory user={this.props.user} />
           </Route>
 
           <Route path='/logout'>
@@ -72,7 +72,6 @@ const mapStateToProps = (state) => {
     products: state.products,
     user: state.user,
     cart: state.cart,
-    orders: state.orders 
   };
 };
 

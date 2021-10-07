@@ -23,6 +23,14 @@ const usersReducer = (state = {
                 user: {},
                 orderHistory: []
             }
+        case 'ADD_ORDER':
+            // debugger;
+            return {
+                ...state,
+                isAuth: true,
+                user: state.user,
+                orderHistory: [...state.orderHistory, action.payload]
+            }
 
         default:
             return state;

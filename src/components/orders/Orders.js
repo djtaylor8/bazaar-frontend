@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import moment from 'moment'
 
-export default function Orders(props) {
+export default function OrdersHistory(props) {
 
     const { orderHistory } = props.user
     // debugger;
