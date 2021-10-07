@@ -1,13 +1,16 @@
 import React from 'react';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Grid, Typography, Button } from '@material-ui/core';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import Cart from '../cart/Cart'
+import OrderConfirmation from '../notifications/OrderConfirmation';
 
 
 const Checkout = (props) => {
+    let history = useHistory();
     const { cart } = props
     const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
@@ -54,8 +57,8 @@ const Checkout = (props) => {
                 setAddress('')
                 setCity('')
                 setState('')
+                history.push('/my-orders')
             }
-        alert('Thank you for your payment!')
     }
 
     return (
