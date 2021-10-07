@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import Cart from '../cart/Cart'
-import OrderConfirmation from '../notifications/OrderConfirmation';
+import Loading from '../notifications/Loading'
 
 
 const Checkout = (props) => {
@@ -15,14 +15,17 @@ const Checkout = (props) => {
     const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
+    const [loading, setLoading] = useState(false)
 
     const elements = useElements();
     const stripe = useStripe();
 
     const user = JSON.parse(localStorage.getItem('user'));
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         if (!stripe || !elements) {
             return;
         }
@@ -59,10 +62,11 @@ const Checkout = (props) => {
                 setState('')
                 history.push('/my-orders')
             }
-    }
+        }
 
     return (
         <div>
+            {loading ? <Loading /> : null}
           <Grid container spacing={4} alignItems='center' justifyContent='center' style={{ maxWidth: 1100, margin: '0 auto' }}>
             <Grid item sm={8}>
               <form id='payment-form' onSubmit={(e) => handleSubmit(e)}>
