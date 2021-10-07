@@ -14,6 +14,7 @@ import AuthRoute from './components/auth/AuthRoute';
 import NavBar from './components/navigation/NavBar';
 import Checkout from './components/checkout/Checkout'
 import OrdersHistory from './components/orders/Orders';
+import OrderConfirmation from './components/notifications/OrderConfirmation';
 
 class App extends Component {
 
@@ -48,6 +49,10 @@ render() {
 
           <Route path='/logout'>
             <Logout logout={this.props.logout}/>
+          </Route>
+
+          <Route path='/confirmation'>
+            <OrderConfirmation />
           </Route>
           
           <AuthRoute path='/cart' type='private'/>

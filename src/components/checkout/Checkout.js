@@ -60,7 +60,7 @@ const Checkout = (props) => {
                 setAddress('')
                 setCity('')
                 setState('')
-                history.push('/my-orders')
+                history.push('/confirmation')
             }
         }
 
