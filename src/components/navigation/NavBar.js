@@ -10,8 +10,7 @@ import SortIcon from '@mui/icons-material/Sort';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import Login from '../users/Login'
-import AccountCircle from '@mui/icons-material/AccountCircle';
-
+import Avatar from '@mui/material/Avatar';
 
 const useStyles = makeStyles((theme) => ({
     appbar: {
@@ -28,7 +27,8 @@ const useStyles = makeStyles((theme) => ({
 
 const  NavBar = (props) => {
     let history = useHistory();
- 
+    const { user } = props.user;
+
 const [anchorEl, setAnchorEl] = React.useState(null);
 
 
@@ -61,7 +61,6 @@ const [anchorEl, setAnchorEl] = React.useState(null);
       <AppBar className={classes.appbar} position="static" style={{ display: "flex" }}>
         <Toolbar>
           <Typography variant="h6" style={{ color: 'black', flexGrow: '1'}}>Bazaar</Typography>
-          <CartDrawer className={classes.cart} cart={props.cart} products={props.products} removeFromCart={props.removeFromCart} addToCart={props.addToCart}/>
             <div>
                <IconButton
                 size="large"
@@ -91,7 +90,16 @@ const [anchorEl, setAnchorEl] = React.useState(null);
                 <MenuItem onClick={handleShop}>Shop</MenuItem>
               </Menu>
             </div>
+            {props.user.isAuth ? (
+            <>
+            <CartDrawer className={classes.cart} cart={props.cart} products={props.products} removeFromCart={props.removeFromCart} addToCart={props.addToCart}/>
+            <Avatar src={`${user.image}`} />
+            </>
+            ) : (
+            <>
             <Login login={props.googleLogin}/>
+            </>
+            )}
         </Toolbar>
       </AppBar>
     );
@@ -100,3 +108,4 @@ const [anchorEl, setAnchorEl] = React.useState(null);
 export default connect(({ user }) => ({ user }), { logout, googleLogin })(
   NavBar
 );
+
