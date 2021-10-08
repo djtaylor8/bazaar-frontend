@@ -87,11 +87,16 @@ const [anchorEl, setAnchorEl] = React.useState(null);
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleHome}>Home</MenuItem>
-                <MenuItem onClick={handleOrders}>My orders</MenuItem>
+                <>
                 <MenuItem onClick={handleShop}>Shop</MenuItem>
+                </>
+                { props.user.isAuth && (
+                  <>
+                <MenuItem onClick={handleOrders}>My orders</MenuItem>
                 <MenuItem onClick={handleLogout}><Logout logout={props.logout}/></MenuItem>
-              </Menu>
+                </>
+                )}
+                </Menu>
             </div>
             {props.user.isAuth ? (
             <>
