@@ -58,7 +58,7 @@ render() {
           <AuthRoute path='/cart' type='private' />
         
           <Route path='/products/:productId'>
-            <Product products={this.props.products} addToCart={this.props.addToCart} />
+            <Product products={this.props.products} addToCart={this.props.addToCart} user={this.props.user} />
           </Route>
 
           <Route path='/products'>

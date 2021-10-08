@@ -25,7 +25,7 @@ function Product(props) {
                     <ProductImage image={product.image} />
                 </Grid>
                 <Grid item sm={8}>
-                    <ProductInfo product={product} addToCart={handleAddToCart} />
+                    <ProductInfo product={product} addToCart={handleAddToCart} user={props.user}/>
                 </Grid>
             </Grid>
             

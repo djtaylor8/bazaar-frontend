@@ -54,7 +54,7 @@ export default function ProductsList(props) {
     ))}
     </Grid>
     <Route path={`${path}/:productId`}>
-       <Product products={products} />
+       <Product products={products} user={props.user}/>
      </Route>
     </div>
   );

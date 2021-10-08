@@ -3,7 +3,7 @@ import { Grid, Typography, Divider, Button, Box } from '@material-ui/core'
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
 
 
-const ProductInfo = ({ product, addToCart }) => {
+const ProductInfo = ({ product, addToCart, user }) => {
 
     const { productId } = useParams()
 
@@ -14,9 +14,13 @@ const ProductInfo = ({ product, addToCart }) => {
         <Box mt={2}>
             <Typography variant='h4'>{product.name}</Typography>
             <Typography variant='subtitle1'>{product.description}</Typography>
-            <Typography variant='h5'>${product.price}</Typography>
+            <Typography align='center' variant='h5'>${product.price}</Typography>
         </Box>
+        {user.isAuth ? (
         <Button id={productId} onClick={(e) => addToCart(e)} variant='contained' color='primary' style={{ marginTop: 'auto' }}>Add To Cart</Button>
+        ) : 
+        <Typography align='center' variant='subtitle2'>Please login to add item to cart</Typography>
+        }
         </Grid>
     );
 };
