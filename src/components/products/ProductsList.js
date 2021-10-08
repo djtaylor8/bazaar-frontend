@@ -34,12 +34,11 @@ export default function ProductsList(props) {
     <Grid container spacing={2} style={{ marginTop: '5rem', marginBottom: '5rem'}}>
     {products.map((product) => (
       <Grid item md={3} key={product.id}>
-    <Card sx={{ maxWidth: 345, objectFit: 'cover' }}>
+    <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         className={productClasses.media}
         component="img"
         alt={product.name}
-        // height="140"
         image={product.image}
       />
       <CardContent>

@@ -92,7 +92,7 @@ const Checkout = (props) => {
                 </form>
 
             </Grid>
-            <Grid item sm={4}>
+            <Grid item sm={4} style={{ color: '#fff', backdropFilter: 'blur(50px)'}}>
               <Cart cart={cart} products={props.products} removeFromCart={props.removeFromCart} addToCart={props.addToCart}/>
             </Grid>
             </Grid> 
