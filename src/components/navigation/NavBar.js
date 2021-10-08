@@ -10,6 +10,7 @@ import SortIcon from '@mui/icons-material/Sort';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import Login from '../users/Login'
+import Logout from '../users/Logout'
 import Avatar from '@mui/material/Avatar';
 import { MicNone } from "@material-ui/icons";
 
@@ -52,6 +53,10 @@ const [anchorEl, setAnchorEl] = React.useState(null);
     setAnchorEl(null);
   }
 
+  const handleLogout = () => {
+      setAnchorEl(null)
+  }
+
 
     const classes = useStyles();
     return (
@@ -85,6 +90,7 @@ const [anchorEl, setAnchorEl] = React.useState(null);
                 <MenuItem onClick={handleHome}>Home</MenuItem>
                 <MenuItem onClick={handleOrders}>My orders</MenuItem>
                 <MenuItem onClick={handleShop}>Shop</MenuItem>
+                <MenuItem onClick={handleLogout}><Logout logout={props.logout}/></MenuItem>
               </Menu>
             </div>
             {props.user.isAuth ? (
