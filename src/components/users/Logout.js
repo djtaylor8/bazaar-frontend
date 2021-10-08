@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom'
 import { GoogleLogout } from 'react-google-login';
 import { Grid } from '@material-ui/core'
 
 
 
 const Logout = (props) => {
+    let history = useHistory()
 
     const logoutUser = () => {
         props.logout()
+        history.push('/')
     }
 
     return (

@@ -14,7 +14,7 @@ import Avatar from '@mui/material/Avatar';
 
 const useStyles = makeStyles((theme) => ({
     appbar: {
-        minHeight: '30vh',
+        minHeight: '40vh',
         backgroundImage: `url(${'/images/IMG_3823.jpg'})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
