@@ -6,11 +6,16 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, Redirect } from 'react-router-dom';
 import Product from './ProductShow'
-import AlertMessage from '../notifications/AlertMessage'
 
 
+const useStyles = makeStyles((theme) => ({
+  media: {
+      objectFit: 'cover',
+  },
+}));
 
 
 export default function ProductsList(props) {
@@ -21,16 +26,20 @@ export default function ProductsList(props) {
     props.addToCart(e.target.id)
 }
   
+  const productClasses = useStyles();
+
+  
   return (
     <div>
-    <Grid container spacing={2}>
+    <Grid container spacing={2} style={{ marginTop: '5rem', marginBottom: '5rem'}}>
     {products.map((product) => (
       <Grid item md={3} key={product.id}>
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, objectFit: 'cover' }}>
       <CardMedia
+        className={productClasses.media}
         component="img"
         alt={product.name}
-        height="140"
+        // height="140"
         image={product.image}
       />
       <CardContent>
@@ -59,4 +68,3 @@ export default function ProductsList(props) {
     </div>
   );
 }
-

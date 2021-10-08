@@ -4,6 +4,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Grid } from '@material-ui/core'
 import moment from 'moment'
 
 export default function OrdersHistory(props) {
@@ -12,6 +13,7 @@ export default function OrdersHistory(props) {
     // debugger;
 
   return (
+    <Grid container direction='column' style={{ maxWidth: 800, margin: '0 auto', marginTop: '5rem', marginBottom: '5rem' }} >
     <div>
     {orderHistory.reverse().map((order) => (
     <div key={order.id}>
@@ -36,5 +38,6 @@ export default function OrdersHistory(props) {
     </div>
       ))}
     </div>
+    </Grid>
   );
 }

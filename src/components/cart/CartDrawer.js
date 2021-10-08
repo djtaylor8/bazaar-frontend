@@ -10,6 +10,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import Cart from './Cart'
 import CloseIcon from '@mui/icons-material/Close';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import { Typography } from '@mui/material';
 
 
 export default function CartDrawer(props) {
@@ -35,7 +36,7 @@ export default function CartDrawer(props) {
     >
       <List>
         <CloseIcon onClick={toggleDrawer(anchor, false)} />
-        <h3>Cart</h3>
+        <Typography align='center' variant='h5'>Cart</Typography>
       </List>
       <Divider />
       <List>

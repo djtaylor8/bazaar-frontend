@@ -20,7 +20,7 @@ function Product(props) {
 
     return (
         <div>
-            <Grid container spacing={1} style={{ maxWidth: 1100, margin: '0 auto' }}>
+            <Grid container spacing={1} style={{ maxWidth: 1100, margin: '0 auto', marginTop: '5rem' }}>
                 <Grid item sm={4}>
                     <ProductImage image={product.image} />
                 </Grid>
