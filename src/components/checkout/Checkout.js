@@ -73,19 +73,19 @@ const Checkout = (props) => {
                 <Typography variant='h5'>Shipping Info</Typography>
                 <br></br>
                 <Grid item xs={10}>
-                <TextField fullWidth label="street address" value={address} onChange={e => setAddress(e.target.value)}></TextField>
+                <TextField fullWidth variant='standard' label="street address" value={address} onChange={e => setAddress(e.target.value)}></TextField>
                 </Grid>
                 <Grid item xs={10}>
-                <TextField fullWidth label='city' value={city} onChange={e => setCity(e.target.value)}></TextField>
+                <TextField fullWidth label='city' variant='standard' value={city} onChange={e => setCity(e.target.value)}></TextField>
                 </Grid>
                 <Grid item xs={10}>
-                <TextField fullWidth label='state' value={state} onChange={e => setState(e.target.value)}></TextField>
+                <TextField fullWidth label='state' variant='standard' value={state} onChange={e => setState(e.target.value)}></TextField>
                 </Grid>
                 <br></br>
                 <Typography variant='h5'>Payment</Typography>
                
-                 <Box sx={{ borderColor: 'text.primary', borderBottom: 1, height: '2rem', marginBottom: '2rem', marginTop: '2rem' }}>
-                 <CardElement id="card-element" />
+                 <Box sx={{ borderColor: 'grey', borderRadius: 6, height: '2rem', marginBottom: '2rem', marginTop: '.5rem', bgcolor: 'white', padding: '1rem', alignItems: 'center' }}>
+                 <CardElement id="card-element" iconStyle='solid' />
                  </Box>
                  <Button variant='contained' type='submit'>Pay</Button>
              

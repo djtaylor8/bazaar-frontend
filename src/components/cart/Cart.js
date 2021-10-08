@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 const Cart = (props) => {
     const { cart } = props
     // debugger;
-    
+
     const handleRemove = (e) => {
         props.removeFromCart(e.target.id)
     }
@@ -16,7 +16,7 @@ const Cart = (props) => {
 
     return (
         <div>
-            {cart.addedProducts.length === 0 && <div>Your cart is empty</div>}
+            {cart.addedProducts.length === 0 && <div style={{color: '#fff'}}>Your cart is empty.</div>}
             {cart.addedProducts.map((product) => (
                 <div key={product.id}>
                     {product.name}

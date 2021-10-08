@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
-import { CssBaseline } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { fetchProducts } from './actions/productActions';
 import { googleLogin, logout } from './actions/sessionActions';
@@ -28,7 +27,6 @@ render() {
   // debugger;
   return (
     <Router>
-        <CssBaseline />
 
         <NavBar cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart}/>
 

@@ -90,11 +90,11 @@ const [anchorEl, setAnchorEl] = React.useState(null);
             {props.user.isAuth ? (
             <>
             <CartDrawer className={classes.cart} cart={props.cart} products={props.products} removeFromCart={props.removeFromCart} addToCart={props.addToCart}/>
-            <Avatar src={`${user.image}`} />
+            <Avatar src={`${user.image}`} style={{cursor: 'pointer'}} />
             </>
             ) : (
             <>
-            <Login login={props.googleLogin}/>
+            <Login login={props.googleLogin} style={{cursor: 'pointer'}}/>
             </>
             )}
         </Toolbar>
