@@ -26,8 +26,7 @@ render() {
   // debugger;
   return (
     <Router>
-      <div>
-        <CssBaseline />
+        {/* <CssBaseline /> */}
 
         <NavBar cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart}/>
 
@@ -64,7 +63,7 @@ render() {
             <ProductsList products={this.props.products} loading={this.props.loading} addToCart={this.props.addToCart}/>
           </Route>
         </Switch>
-
+      <div>
       </div>
     </Router>
   );

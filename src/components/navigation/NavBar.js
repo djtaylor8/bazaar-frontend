@@ -11,14 +11,11 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import Login from '../users/Login'
 import Avatar from '@mui/material/Avatar';
+import { MicNone } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
     appbar: {
-        minHeight: '40vh',
-        backgroundImage: `url(${'/images/IMG_3823.jpg'})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        background: 'none'
     },
     icon: {
         color: '#fff'
@@ -58,7 +55,7 @@ const [anchorEl, setAnchorEl] = React.useState(null);
 
     const classes = useStyles();
     return (
-      <AppBar className={classes.appbar} position="static" style={{ display: "flex" }}>
+      <AppBar elevation={0} className={classes.appbar} position="static" style={{ display: "flex" }}>
         <Toolbar>
           <Typography variant="h6" style={{ color: 'black', flexGrow: '1'}}>Bazaar</Typography>
             <div>
