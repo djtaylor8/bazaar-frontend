@@ -14,6 +14,7 @@ import NavBar from './components/navigation/NavBar';
 import Checkout from './components/checkout/Checkout'
 import OrdersHistory from './components/orders/Orders';
 import OrderConfirmation from './components/notifications/OrderConfirmation';
+import AlertMessage from './components/notifications/AlertMessage';
 
 
 
@@ -42,26 +43,28 @@ render() {
             <Checkout cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart} addOrder={this.props.addOrder} clearCart={this.props.clearCart} />
           </AuthRoute>
 
-          <Route path='/my-orders'>
+          <AuthRoute path='/my-orders' type='private'>
             <OrdersHistory user={this.props.user} />
-          </Route>
+          </AuthRoute>
 
-          <Route path='/logout'>
+          <AuthRoute path='/logout' type='private'>
             <Logout logout={this.props.logout}/>
-          </Route>
+          </AuthRoute>
 
-          <Route path='/confirmation'>
+          <AuthRoute path='/confirmation' type='private'>
             <OrderConfirmation />
-          </Route>
+          </AuthRoute>
           
-          <AuthRoute path='/cart' type='private'/>
+          <AuthRoute path='/cart' type='private' />
         
           <Route path='/products/:productId'>
             <Product products={this.props.products} addToCart={this.props.addToCart} />
           </Route>
+
           <Route path='/products'>
-            <ProductsList products={this.props.products} loading={this.props.loading} addToCart={this.props.addToCart}/>
+            <ProductsList products={this.props.products} loading={this.props.loading} addToCart={this.props.addToCart} user={this.props.user}/>
           </Route>
+  
         </Switch>
       <div>
       </div>

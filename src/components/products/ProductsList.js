@@ -8,12 +8,12 @@ import Typography from '@mui/material/Typography';
 import { Grid } from '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, Redirect } from 'react-router-dom';
 import Product from './ProductShow'
+import AlertMessage from '../notifications/AlertMessage'
 
 
 
 
 export default function ProductsList(props) {
-
   const { url, path } = useRouteMatch()
   const  { products } = props.products;
 
@@ -45,16 +45,18 @@ export default function ProductsList(props) {
       <Link to={`${url}/${product.id}`} className="productLinks">
         <Button size="small">Learn More</Button>
       </Link>
+      {props.user.isAuth && (
         <Button id={product.id} size="small" onClick={(e) => handleAdd(e)}>Add To Cart</Button>
+      )}
       </CardActions>
     </Card>
     </Grid>
     ))}
     </Grid>
-
     <Route path={`${path}/:productId`}>
        <Product products={products} />
      </Route>
     </div>
   );
 }
+

@@ -3,7 +3,7 @@ import React from 'react';
 const ProductImage = ({ image }) => {
     return (
         <div>
-            <img src={image} width='100%'></img>
+            <img src={image} width='100%'/>
         </div>
     );
 };

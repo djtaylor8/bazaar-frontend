@@ -1,7 +1,6 @@
 import React from "react";
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from "react-router-dom";
 import { AppBar, Toolbar, Button, IconButton, Typography } from "@material-ui/core";
 import { connect } from "react-redux";
 import CartDrawer from '../cart/CartDrawer';
@@ -12,7 +11,6 @@ import Menu from '@mui/material/Menu';
 import Login from '../users/Login'
 import Logout from '../users/Logout'
 import Avatar from '@mui/material/Avatar';
-import { MicNone } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
     appbar: {
