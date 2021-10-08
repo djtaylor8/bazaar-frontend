@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import '@fontsource/roboto/500.css';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
@@ -9,6 +8,8 @@ import thunk from 'redux-thunk';
 import App from './App';
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js';
+
+require ('./App.css');
 
 const stripePromise = loadStripe('pk_test_51Jgz9oGhEFVdImpM3RqeKYC6FRh1gotgx5E2b6TcOcjQtpiwhdubvY2KxeGHKhRaqj7B0tRDhulVy5r2WFwUBLfx00Dp5GdUy5')
 

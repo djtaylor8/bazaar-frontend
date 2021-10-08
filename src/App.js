@@ -16,6 +16,8 @@ import Checkout from './components/checkout/Checkout'
 import OrdersHistory from './components/orders/Orders';
 import OrderConfirmation from './components/notifications/OrderConfirmation';
 
+
+
 class App extends Component {
 
   componentDidMount() {
@@ -26,7 +28,7 @@ render() {
   // debugger;
   return (
     <Router>
-        {/* <CssBaseline /> */}
+        <CssBaseline />
 
         <NavBar cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart}/>
 
