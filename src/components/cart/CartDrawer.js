@@ -62,7 +62,7 @@ export default function CartDrawer(props) {
       {['right'].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>
-              <ShoppingBasketIcon />
+              <ShoppingBasketIcon style={{color: 'white'}}/>
           </Button>
           <Drawer
             anchor={anchor}

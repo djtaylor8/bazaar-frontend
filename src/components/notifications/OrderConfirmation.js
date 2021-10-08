@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@material-ui/core';
 import Card from '@mui/material/Card';
-import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, Redirect } from 'react-router-dom';
 
 const OrderConfirmation = () => {
     let history = useHistory()
