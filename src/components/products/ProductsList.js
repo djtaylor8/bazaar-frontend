@@ -30,10 +30,9 @@ const filterProducts = (products, search) => {
 };
 
 export default function ProductsList(props) {
-  const { search } = window.location
   const { url, path } = useRouteMatch()
   const  { products } = props.products;
-  const [searchQuery, setSearchQuery] = useState(search || '')
+  const [searchQuery, setSearchQuery] = useState('')
   const filteredProducts = filterProducts(products, searchQuery)
 
   const handleAdd = (e) => {
