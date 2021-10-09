@@ -41,6 +41,11 @@ const [anchorEl, setAnchorEl] = React.useState(null);
     setAnchorEl(null);
   }
 
+  const handleHome = () => {
+      history.push('/')
+      setAnchorEl(null);
+  }
+
   const handleShop = () => {
     history.push('/products')
     setAnchorEl(null);
@@ -80,6 +85,7 @@ const [anchorEl, setAnchorEl] = React.useState(null);
                 onClose={handleClose}
               >
                 <>
+                <MenuItem onClick={handleHome}>Home</MenuItem>
                 <MenuItem onClick={handleShop}>Shop</MenuItem>
                 </>
                 { props.user.isAuth && (
