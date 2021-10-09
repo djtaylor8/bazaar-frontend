@@ -20,10 +20,12 @@ const OrderConfirmation = () => {
         <div>
           <Grid container spacing={10} alignItems='center' justifyContent='center' style={{ maxWidth: 1100, margin: '0 auto' }}>
             <Grid item xs={6}>
-            <Card raised={true} style={{ minHeight: '8rem', textAlign: 'center', display: 'flex', justifyContent: 'space-around', flexDirection: 'column', alignItems: 'center' }}>
-            <Typography>Thank you for your purchase!</Typography>
-            <Button onClick={handleOrdersClick} variant="contained" size="small" style={{maxWidth: '50%'}}>View Orders</Button>
-            <Button onClick={handleHomeClick} variant="contained" size="small" style={{maxWidth: '50%'}}>Home</Button>
+            <Card raised={true} style={{ minHeight: '8rem', textAlign: 'center', display: 'flex', justifyContent: 'space-between', flexDirection: 'column', alignItems: 'center' }}>
+            <Typography style={{marginTop: '1rem' }}>Thank you for your purchase!</Typography>
+            <div style={{ marginTop: 'auto', marginBottom: '1rem'}}>
+            <Button onClick={handleOrdersClick} variant="outlined" size="small">View Orders</Button>
+            <Button onClick={handleHomeClick} variant="outlined" size="small">Home</Button>
+            </div>
             </Card>
             </Grid>
           </Grid>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Typography } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchProducts } from './actions/productActions';
@@ -14,9 +15,7 @@ import NavBar from './components/navigation/NavBar';
 import Checkout from './components/checkout/Checkout'
 import OrdersHistory from './components/orders/Orders';
 import OrderConfirmation from './components/notifications/OrderConfirmation';
-import AlertMessage from './components/notifications/AlertMessage';
-
-
+import Welcome from './components/home/Welcome';
 
 class App extends Component {
 
@@ -25,10 +24,9 @@ class App extends Component {
   }
 
 render() {
-  // debugger;
   return (
     <Router>
-
+      <div>
         <NavBar cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart}/>
 
         <Switch>
@@ -37,7 +35,6 @@ render() {
             <Login login={this.props.googleLogin} />
             }
           </AuthRoute>
-
 
           <AuthRoute path='/checkout' type='private'>
             <Checkout cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart} addOrder={this.props.addOrder} clearCart={this.props.clearCart} />
@@ -64,15 +61,17 @@ render() {
           <Route path='/products'>
             <ProductsList products={this.props.products} loading={this.props.loading} addToCart={this.props.addToCart} user={this.props.user}/>
           </Route>
+
+          <Route exact path='/'>
+            <Welcome />
+          </Route>
   
         </Switch>
-      <div>
       </div>
     </Router>
-  );
-  }
-
-}
+    );
+   }
+ } 
 
 const mapStateToProps = (state) => {
   return {
@@ -95,4 +94,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
-

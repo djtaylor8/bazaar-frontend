@@ -36,11 +36,6 @@ const [anchorEl, setAnchorEl] = React.useState(null);
     setAnchorEl(null);
   };
 
-  const handleHome = () => {
-    history.push('/')
-    setAnchorEl(null);
-  }
-
   const handleOrders = () => {
     history.push('/my-orders')
     setAnchorEl(null);
@@ -55,12 +50,11 @@ const [anchorEl, setAnchorEl] = React.useState(null);
       setAnchorEl(null)
   }
 
-
-    const classes = useStyles();
+  const classes = useStyles();
     return (
       <AppBar elevation={0} className={classes.appbar} position="static" style={{ display: "flex" }}>
         <Toolbar>
-          <Typography variant="h6" style={{ color: 'black', flexGrow: '1'}}>Bazaar</Typography>
+          <Typography variant="h5" style={{ color: 'black', flexGrow: '1'}}>Bazaar</Typography>
             <div>
                <IconButton
                 size="large"
@@ -99,11 +93,14 @@ const [anchorEl, setAnchorEl] = React.useState(null);
             {props.user.isAuth ? (
             <>
             <CartDrawer className={classes.cart} cart={props.cart} products={props.products} removeFromCart={props.removeFromCart} addToCart={props.addToCart}/>
-            <Avatar src={`${user.image}`} style={{cursor: 'pointer'}} />
+            <Avatar src={`${user.image}`} />
             </>
             ) : (
+            
             <>
-            <Login login={props.googleLogin} style={{cursor: 'pointer'}}/>
+            <div style={{ cursor: 'pointer' }}>
+            <Login login={props.googleLogin} />
+            </div>
             </>
             )}
         </Toolbar>
@@ -114,4 +111,3 @@ const [anchorEl, setAnchorEl] = React.useState(null);
 export default connect(({ user }) => ({ user }), { logout, googleLogin })(
   NavBar
 );
-

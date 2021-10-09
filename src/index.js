@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/300.css';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import rootReducer from './reducers/index';

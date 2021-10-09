@@ -8,7 +8,7 @@ const ProductInfo = ({ product, addToCart, user }) => {
     const { productId } = useParams()
 
     return (
-        <Grid container direction='column' style={{ height: '100%', backdropFilter: 'blur(50px)', color: '#414a4c' }}>
+        <Grid container direction='column' style={{ height: '100%', backdropFilter: 'blur(50px)' }}>
         <Typography variant='subtitle1'>{product.listing_type}</Typography>
         <Divider />
         <Box mt={2}>

@@ -8,11 +8,9 @@ import ProductInfo from './ProductInfo';
 function Product(props) {
 
     const { productId } = useParams()
-    // const { url, path } = useRouteMatch()
     const { products } = props.products
 
    const handleAddToCart = (e) => {
-        // console.log(e.target.parentNode.id)
         props.addToCart(e.target.parentNode.id)
     }
 

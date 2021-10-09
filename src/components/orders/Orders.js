@@ -10,7 +10,6 @@ import moment from 'moment'
 export default function OrdersHistory(props) {
 
     const { orderHistory } = props.user
-    // debugger;
 
   return (
     <Grid container direction='column' style={{ maxWidth: 800, margin: '0 auto', marginTop: '5rem', marginBottom: '5rem' }} >

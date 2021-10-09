@@ -24,7 +24,6 @@ const usersReducer = (state = {
                 orderHistory: []
             }
         case 'ADD_ORDER':
-            // debugger;
             return {
                 ...state,
                 isAuth: true,
