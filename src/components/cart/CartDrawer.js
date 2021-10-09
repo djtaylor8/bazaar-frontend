@@ -59,8 +59,6 @@ export default function CartDrawer(props) {
     </Box>
   );
 
-//   debugger;
-
   return (
     <div>
       {['right'].map((anchor) => (

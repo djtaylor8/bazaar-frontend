@@ -9,6 +9,8 @@ import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, Redirect } from 'react-router-dom';
 import Product from './ProductShow'
+import Search from '../search/Search'
+import { useState } from 'react'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -17,10 +19,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const filterProducts = (products, search) => {
+  if (!search) {
+    return products
+  }
+  return products.filter((product) => {
+    const productName = product.name.toLowerCase();
+    return productName.includes(search);
+  });
+};
 
 export default function ProductsList(props) {
+  const { search } = window.location
   const { url, path } = useRouteMatch()
   const  { products } = props.products;
+  const [searchQuery, setSearchQuery] = useState(search || '')
+  const filteredProducts = filterProducts(products, searchQuery)
 
   const handleAdd = (e) => {
     props.addToCart(e.target.id)
@@ -31,8 +45,9 @@ export default function ProductsList(props) {
   
   return (
     <div>
+      <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
     <Grid container spacing={2} style={{ marginTop: '5rem', marginBottom: '5rem'}}>
-    {products.map((product) => (
+    {filteredProducts.map((product) => (
       <Grid item md={3} key={product.id}>
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
