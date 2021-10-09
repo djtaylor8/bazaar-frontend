@@ -11,6 +11,7 @@ import Cart from './Cart'
 import CloseIcon from '@mui/icons-material/Close';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Typography } from '@mui/material';
+import Badge from '@mui/material/Badge'
 
 
 export default function CartDrawer(props) {
@@ -58,12 +59,16 @@ export default function CartDrawer(props) {
     </Box>
   );
 
+//   debugger;
+
   return (
     <div>
       {['right'].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>
+              <Badge badgeContent={cart.addedProducts.reduce((a, product) => a + product.quantity, 0)} color='primary'>
               <ShoppingBasketIcon style={{color: 'white'}}/>
+              </Badge>
           </Button>
           <Drawer
             anchor={anchor}
