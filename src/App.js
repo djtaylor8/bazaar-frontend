@@ -7,7 +7,6 @@ import { addToCart, removeProductFromCart, clearCart } from './actions/cartActio
 import { addOrder } from './actions/orderActions';
 import ProductsList from './components/products/ProductsList';
 import Product from './components/products/ProductShow'
-import Login from './components/users/Login';
 import Logout from './components/users/Logout';
 import AuthRoute from './components/auth/AuthRoute';
 import NavBar from './components/navigation/NavBar';
@@ -21,11 +20,9 @@ class App extends Component {
 
   componentDidMount() {
     this.props.fetchProducts();
-    // localStorage.clear()
   }
 
 render() {
-  // debugger;
   return (
     <Router>
       <div>
