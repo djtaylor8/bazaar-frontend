@@ -12,7 +12,7 @@ import Login from '../users/Login'
 import Logout from '../users/Logout'
 import Avatar from '@mui/material/Avatar';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     appbar: {
         background: 'none'
     },
@@ -62,7 +62,7 @@ const [anchorEl, setAnchorEl] = React.useState(null);
           <Typography variant="h5" style={{ color: 'black', flexGrow: '1'}}>Bazaar</Typography>
             <div>
                <IconButton
-                size="large"
+                size="medium"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleMenu}
