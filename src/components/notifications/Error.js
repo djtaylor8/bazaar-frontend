@@ -27,7 +27,6 @@ export default function Error() {
     </React.Fragment>
   );
 
-
   return (
     <div>
       <Snackbar
