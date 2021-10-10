@@ -25,11 +25,12 @@ class App extends Component {
   }
 
 render() {
+  // debugger;
   return (
     <Router>
       <div>
         {this.props.user.status === 'error' && <Error />}
-        
+
         <NavBar cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart}/>
 
         <Switch>

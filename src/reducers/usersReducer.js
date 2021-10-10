@@ -19,7 +19,8 @@ const usersReducer = (state = {
                 ...state,
                 isAuth: true,
                 user: action.user,
-                orderHistory: action.user.orders
+                orderHistory: action.user.orders,
+                status: action.status
             };
         case 'LOGOUT':
             localStorage.removeItem('user');
@@ -27,7 +28,8 @@ const usersReducer = (state = {
                 ...state,
                 isAuth: false,
                 user: {},
-                orderHistory: []
+                orderHistory: [],
+                status: ''
             }
         case 'ADD_ORDER':
             return {
