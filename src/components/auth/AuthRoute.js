@@ -5,8 +5,7 @@ import { Redirect, Route } from 'react-router';
 const AuthRoute = (props) => {
     const { user, type } = props;
 
-    if (type === 'guest' && user.isAuth) return <Redirect to='/'/>;
-    else if (type === 'private' && !user.isAuth) return <Redirect to='/'/>;
+    if (type === 'private' && !user.isAuth) return <Redirect to='/'/>;
     return <Route {...props} />
 };
 

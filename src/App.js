@@ -34,11 +34,6 @@ render() {
         <NavBar cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart}/>
 
         <Switch>
-          <AuthRoute path='/login' type='guest'>
-            {this.props.user.isAuth ? <Redirect to='/' /> :
-            <Login login={this.props.googleLogin} />
-            }
-          </AuthRoute>
 
           <AuthRoute path='/checkout' type='private'>
             <Checkout cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart} addOrder={this.props.addOrder} clearCart={this.props.clearCart} />
