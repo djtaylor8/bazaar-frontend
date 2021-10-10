@@ -15,8 +15,8 @@ export const googleLogin = (response) => {
     .then(response => response.json())
     .then((responseJSON) => {
         if (responseJSON.status === 'success') {
-        dispatch({ type: 'LOGIN', user: responseJSON });
-        localStorage.setItem('user', JSON.stringify(responseJSON));
+        dispatch({ type: 'LOGIN', user: responseJSON.user });
+        localStorage.setItem('user', JSON.stringify(responseJSON.user));
         } else {
             dispatch({ type: 'LOGIN_ERROR', status: 'error' })
         }
