@@ -10,7 +10,7 @@ import moment from 'moment'
 export default function OrdersHistory(props) {
 
     const { orderHistory } = props.user
-    orderHistory.sort((a, b) => (b.created_at - a.created_at) ? 1 : -1)
+    orderHistory.sort((a, b) => (b.created_at > a.created_at) ? 1 : -1)
 
   return (
     <Grid container direction='column' style={{ maxWidth: 800, margin: '0 auto', marginTop: '5rem', marginBottom: '5rem', alignItems: 'center' }} >
