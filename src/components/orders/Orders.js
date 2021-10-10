@@ -10,6 +10,8 @@ import moment from 'moment'
 export default function OrdersHistory(props) {
 
     const { orderHistory } = props.user
+    orderHistory.sort((a, b) => (a.id > b.id) ? 1 : -1)
+    debugger;
 
   return (
     <Grid container direction='column' style={{ maxWidth: 800, margin: '0 auto', marginTop: '5rem', marginBottom: '5rem', alignItems: 'center' }} >
@@ -31,7 +33,7 @@ export default function OrdersHistory(props) {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            <div>Order Total: ${(order.total/100).toFixed(2)}</div>
+            <div>Total: ${(order.total/100).toFixed(2)}</div>
             <hr></hr>
             <div>
                 Shipping Address:
