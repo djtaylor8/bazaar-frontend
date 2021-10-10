@@ -42,7 +42,8 @@ const Checkout = (props) => {
                 user: user,
                 address: address,
                 city: city,
-                state: state
+                state: state,
+                order_number: Math.floor(Math.random() * 1000)
             }),
         }).then(r => r.json())
 

@@ -10,8 +10,7 @@ import moment from 'moment'
 export default function OrdersHistory(props) {
 
     const { orderHistory } = props.user
-    orderHistory.sort((a, b) => (a.id > b.id) ? 1 : -1)
-    debugger;
+    orderHistory.sort((a, b) => (b.created_at - a.created_at) ? 1 : -1)
 
   return (
     <Grid container direction='column' style={{ maxWidth: 800, margin: '0 auto', marginTop: '5rem', marginBottom: '5rem', alignItems: 'center' }} >
@@ -23,13 +22,13 @@ export default function OrdersHistory(props) {
         </Grid>
         )}
     <div>
-    {orderHistory.reverse().map((order) => (
-    <div key={order.id}>
+    {orderHistory.map((order, idx) => (
+    <div key={idx}>
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
         >
-          <Typography>Order No. {order.id} - {moment(`${order.created_at}`).format('M/DD/YYYY')}</Typography>
+          <Typography>Order No. {order.order_number} - {moment(`${order.created_at}`).format('M/DD/YYYY')}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
