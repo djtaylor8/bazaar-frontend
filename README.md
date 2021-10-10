@@ -8,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Make sure you have Ruby, Rails, React, and PostgreSQL installed on your device.
 
-Clone the backend repo [here](https://github.com/djtaylor8/bazaar_api) and run ```bundle install```.
+Clone the backend repo [here](https://github.com/djtaylor8/bazaar-api) and run ```bundle install```.
 
 Create the database and run migrations by running rails db:create and rails db:migrate. Sample products from the FakeStore API will be added to the database after running ```rails db:seed```. Finally, start the server by running rails s.
 
