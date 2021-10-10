@@ -2,6 +2,7 @@ export const googleLogin = (response) => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_USER' });
     const token = response.tokenId
+    debugger;
     const requestOptions = {
         method: 'POST',
         headers: {
