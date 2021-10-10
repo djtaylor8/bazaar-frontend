@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Typography } from "@material-ui/core";
-import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchProducts } from './actions/productActions';
 import { googleLogin, logout } from './actions/sessionActions';

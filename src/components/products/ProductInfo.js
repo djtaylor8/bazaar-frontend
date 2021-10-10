@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Typography, Divider, Button, Box } from '@material-ui/core'
-import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 
 
 const ProductInfo = ({ product, addToCart, user }) => {
@@ -8,7 +8,7 @@ const ProductInfo = ({ product, addToCart, user }) => {
     const { productId } = useParams()
 
     return (
-        <Grid container direction='column' style={{ height: '100%', backdropFilter: 'blur(50px)' }}>
+        <Grid container direction='column' style={{ height: '100%', backdropFilter: 'blur(50px)', color: 'black' }}>
         <Typography variant='subtitle1'>{product.listing_type}</Typography>
         <Divider />
         <Box mt={2}>

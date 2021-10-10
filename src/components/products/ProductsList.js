@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, Redirect } from 'react-router-dom';
+import { Route, Link, useRouteMatch } from 'react-router-dom';
 import Product from './ProductShow'
 import Search from '../search/Search'
 import { useState } from 'react'

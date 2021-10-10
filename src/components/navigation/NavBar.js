@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Button, IconButton, Typography } from "@material-ui/core";
+import { AppBar, Toolbar, IconButton, Typography } from "@material-ui/core";
 import { connect } from "react-redux";
 import CartDrawer from '../cart/CartDrawer';
 import { googleLogin, logout } from "../../actions/sessionActions";
@@ -84,16 +84,16 @@ const [anchorEl, setAnchorEl] = React.useState(null);
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <>
+                
                 <MenuItem onClick={handleHome}>Home</MenuItem>
                 <MenuItem onClick={handleShop}>Shop</MenuItem>
-                </>
+                
                 { props.user.isAuth && (
-                  <>
+                <div>                  
                 <MenuItem onClick={handleOrders}>My orders</MenuItem>
                 <MenuItem onClick={handleLogout}><Logout logout={props.logout}/></MenuItem>
-                </>
-                )}
+                </div> 
+                 )}
                 </Menu>
             </div>
             {props.user.isAuth ? (

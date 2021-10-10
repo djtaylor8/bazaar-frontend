@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { Grid } from '@material-ui/core'
 import GoogleIcon from '@mui/icons-material/Google';
