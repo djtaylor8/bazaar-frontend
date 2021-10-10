@@ -21,6 +21,7 @@ class App extends Component {
 
   componentDidMount() {
     this.props.fetchProducts();
+    // localStorage.clear()
   }
 
 render() {

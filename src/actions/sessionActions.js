@@ -14,9 +14,9 @@ export const googleLogin = (response) => {
     return fetch('http://localhost:3000/api/v1/auth/request', requestOptions)
     .then(response => response.json())
     .then((responseJSON) => {
-        if (responseJSON.status === 'success') {
-        dispatch({ type: 'LOGIN', user: responseJSON.user });
-        localStorage.setItem('user', JSON.stringify(responseJSON.user));
+        if (!responseJSON.status) {
+        dispatch({ type: 'LOGIN', user: responseJSON });
+        localStorage.setItem('user', JSON.stringify(responseJSON));
         } else {
             dispatch({ type: 'LOGIN_ERROR', status: 'error' })
         }

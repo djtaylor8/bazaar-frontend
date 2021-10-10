@@ -12,7 +12,14 @@ export default function OrdersHistory(props) {
     const { orderHistory } = props.user
 
   return (
-    <Grid container direction='column' style={{ maxWidth: 800, margin: '0 auto', marginTop: '5rem', marginBottom: '5rem' }} >
+    <Grid container direction='column' style={{ maxWidth: 800, margin: '0 auto', marginTop: '5rem', marginBottom: '5rem', alignItems: 'center' }} >
+        {orderHistory.length === 0 && (
+            <Grid item>
+        <div>
+            <Typography variant='h5'>No orders yet.</Typography>
+        </div>
+        </Grid>
+        )}
     <div>
     {orderHistory.reverse().map((order) => (
     <div key={order.id}>
