@@ -62,6 +62,9 @@ export default function ProductsList(props) {
         <Typography variant="body2" color="text.secondary">
           {product.description}
         </Typography>
+        <Typography variant="body2" color="text.secondary" style={{marginTop: '1rem'}}>
+          ${product.price}
+        </Typography>
       </CardContent>
       <CardActions>
       <Link to={`${url}/${product.id}`} className="productLinks">
