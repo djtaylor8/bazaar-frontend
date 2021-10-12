@@ -59,9 +59,6 @@ export default function ProductsList(props) {
         <Typography gutterBottom variant="h5" component="div">
           {product.name}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {product.description}
-        </Typography>
         <Typography variant="body2" color="text.secondary" style={{marginTop: '1rem'}}>
           ${product.price}
         </Typography>
