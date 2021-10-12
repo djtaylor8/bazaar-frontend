@@ -23,7 +23,7 @@ export default function OrdersHistory(props) {
         )}
     <div>
     {orderHistory.map((order, idx) => (
-    <div key={idx}>
+    <div key={idx} style={{ marginBottom: '1rem' }}>
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
