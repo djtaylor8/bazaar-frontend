@@ -6,11 +6,7 @@ import CloseIcon from '@mui/icons-material/Close';
 export default function Error() {
   const [open, setOpen] = React.useState(true);
 
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
+  const handleClose = () => {
     setOpen(false);
   };
 
