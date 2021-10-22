@@ -7,6 +7,7 @@ export const googleLogin = (response) => {
         headers: {
             'Authorization': `Bearer ${response.accessToken}`,
             'Content-Type': 'application/json',
+            'Accept': 'application/json',
             'access-token': `${response.accessToken}`
         },
         body: JSON.stringify(token)

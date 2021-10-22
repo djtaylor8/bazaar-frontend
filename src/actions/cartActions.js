@@ -8,6 +8,7 @@ export const addToCart = (id) => {
         headers: {
             'Authorization': `Bearer ${user.google_token}`,
             'Content-Type': 'application/json',
+            'Accept': 'application/json',
             'access-token': `${user.google_token}`
         },
         body: JSON.stringify({user_id: user.id, product_id: id })
@@ -30,6 +31,7 @@ export const removeProductFromCart = (id) => {
         headers: {
             'Authorization': `Bearer ${user.google_token}`,
             'Content-Type': 'application/json',
+            'Accept': 'application/json',
             'access-token': `${user.google_token}`
         },
         body: JSON.stringify({user_id: user.id, product_id: id})
