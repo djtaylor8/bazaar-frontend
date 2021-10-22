@@ -2,6 +2,8 @@
 
 Built using React, Bazaar is an e-commerce application that utilizes Redux-Thunk, Material UI, and the Stripe API. This is my final portfolio project as part of the Flatiron School software engineering program.
 
+[View Live Site Deployed on Netlify](https://bazaarshop.netlify.app/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Installing
