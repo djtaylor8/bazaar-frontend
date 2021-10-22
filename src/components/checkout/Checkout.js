@@ -30,7 +30,7 @@ const Checkout = (props) => {
             return;
         }
 
-        const {clientSecret, order} = await fetch('https:bazaar-react-api.herokuapp.com/api/v1/create-payment-intent', {
+        const {clientSecret, order} = await fetch('https://bazaar-react-api.herokuapp.com/api/v1/create-payment-intent', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
