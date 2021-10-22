@@ -11,7 +11,7 @@ export const googleLogin = (response) => {
         },
         body: JSON.stringify(token)
     }
-    return fetch('http://localhost:3000/api/v1/auth/request', requestOptions)
+    return fetch('https:bazaar-react-api.herokuapp.com/api/v1/auth/request', requestOptions)
     .then(response => response.json())
     .then((responseJSON) => {
         if (!responseJSON.status) {

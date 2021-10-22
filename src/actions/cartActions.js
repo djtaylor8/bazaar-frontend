@@ -12,7 +12,7 @@ export const addToCart = (id) => {
         },
         body: JSON.stringify({user_id: user.id, product_id: id })
     }
-    return fetch(`http://localhost:3000/api/v1/carts/${user.cart.id}`, requestOptions)
+    return fetch(`https:bazaar-react-api.herokuapp.com/api/v1/carts/${user.cart.id}`, requestOptions)
     .then(response => response.json())
     .then((responseJSON) => {
         dispatch({ type: 'ADD_TO_CART', product: responseJSON })
@@ -34,7 +34,7 @@ export const removeProductFromCart = (id) => {
         },
         body: JSON.stringify({user_id: user.id, product_id: id})
     }
-    return fetch(`http://localhost:3000/api/v1/carts/${user.cart.id}/remove`, requestOptions)
+    return fetch(`https:bazaar-react-api.herokuapp.com/api/v1/carts/${user.cart.id}/remove`, requestOptions)
     .then(response => response.json())
     .then((responseJSON) => {
         dispatch({ type: 'REMOVE_FROM_CART', product: responseJSON })
