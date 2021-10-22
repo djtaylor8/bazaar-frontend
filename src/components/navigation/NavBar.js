@@ -59,7 +59,7 @@ const [anchorEl, setAnchorEl] = React.useState(null);
     return (
       <AppBar elevation={0} className={classes.appbar} position="static" style={{ display: "flex" }}>
         <Toolbar>
-          <Typography variant="h5" style={{ color: 'black', flexGrow: '1'}}>Bazaar</Typography>
+          <Typography variant="h5" onClick={handleHome} style={{ color: 'black', flexGrow: '1'}}>Bazaar</Typography>
             <div>
                <IconButton
                 size="medium"
