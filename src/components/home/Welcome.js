@@ -6,9 +6,7 @@ const Welcome = () => {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent:'center', alignItems: 'center', marginTop: '5rem' }}>
         <Typography variant='h5'>your local marketplace</Typography>
-        <Link to='/products' style={{ textDecoration: 'none'}}>
-          shop
-        </Link>
+        <Link to='/products' style={{ textDecoration: 'none'}}>shop</Link> 
        </div>
     );
 };
