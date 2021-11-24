@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchProducts } from './actions/productActions';
 import { googleLogin, logout } from './actions/sessionActions';
@@ -22,52 +22,52 @@ class App extends Component {
     this.props.fetchProducts();
   }
 
-render() {
-  return (
-    <Router>
-      <div>
-        {this.props.user.status === 'error' && <Error />}
+  render() {
+    return (
+      <Router>
+        <div>
+          {this.props.user.status === 'error' && <Error />}
 
-        <NavBar cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart}/>
+          <NavBar cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart}/>
 
-        <Switch>
+          <Switch>
 
-          <AuthRoute path='/checkout' type='private'>
-            <Checkout cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart} addOrder={this.props.addOrder} clearCart={this.props.clearCart} />
-          </AuthRoute>
+            <AuthRoute path='/checkout' type='private'>
+              <Checkout cart={this.props.cart} products={this.props.products} removeFromCart={this.props.removeFromCart} addToCart={this.props.addToCart} addOrder={this.props.addOrder} clearCart={this.props.clearCart} />
+            </AuthRoute>
 
-          <AuthRoute path='/my-orders' type='private'>
-            <OrdersHistory user={this.props.user} />
-          </AuthRoute>
+            <AuthRoute path='/my-orders' type='private'>
+              <OrdersHistory user={this.props.user} />
+            </AuthRoute>
 
-          <AuthRoute path='/logout' type='private'>
-            <Logout logout={this.props.logout}/>
-          </AuthRoute>
+            <AuthRoute path='/logout' type='private'>
+              <Logout logout={this.props.logout}/>
+            </AuthRoute>
 
-          <AuthRoute path='/confirmation' type='private'>
-            <OrderConfirmation />
-          </AuthRoute>
+            <AuthRoute path='/confirmation' type='private'>
+              <OrderConfirmation />
+            </AuthRoute>
           
-          <AuthRoute path='/cart' type='private' />
+            <AuthRoute path='/cart' type='private' />
         
-          <Route path='/products/:productId'>
-            <Product products={this.props.products} addToCart={this.props.addToCart} user={this.props.user} />
-          </Route>
+            <Route path='/products/:productId'>
+              <Product products={this.props.products} addToCart={this.props.addToCart} user={this.props.user} />
+            </Route>
 
-          <Route path='/products'>
-            <ProductsList products={this.props.products} loading={this.props.loading} addToCart={this.props.addToCart} user={this.props.user}/>
-          </Route>
+            <Route path='/products'>
+              <ProductsList products={this.props.products} loading={this.props.loading} addToCart={this.props.addToCart} user={this.props.user}/>
+            </Route>
 
-          <Route exact path='/'>
-            <Welcome />
-          </Route>
+            <Route exact path='/'>
+              <Welcome />
+            </Route>
   
-        </Switch>
-      </div>
-    </Router>
+          </Switch>
+        </div>
+      </Router>
     );
-   }
- } 
+  }
+} 
 
 const mapStateToProps = (state) => {
   return {
