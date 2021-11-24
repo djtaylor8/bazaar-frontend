@@ -3,7 +3,7 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Loading() {
-  const [open, setOpen] = React.useState(true);
+  const [open] = React.useState(true);
 
   return (
     <div>
@@ -11,7 +11,7 @@ export default function Loading() {
         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={open}
       >
-        <CircularProgress color="inherit" />
+        <CircularProgress color='inherit' />
       </Backdrop>
     </div>
   );

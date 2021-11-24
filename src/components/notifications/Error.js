@@ -13,12 +13,12 @@ export default function Error() {
   const action = (
     <React.Fragment>
       <IconButton
-        size="small"
-        aria-label="close"
-        color="inherit"
+        size='small'
+        aria-label='close'
+        color='inherit'
         onClick={handleClose}
       >
-        <CloseIcon fontSize="small" />
+        <CloseIcon fontSize='small' />
       </IconButton>
     </React.Fragment>
   );
@@ -29,7 +29,7 @@ export default function Error() {
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
         open={open}
         autoHideDuration={3000}
-        message="Login failed. Please try again."
+        message='Login failed. Please try again.'
         action={action}
       />
     </div>

@@ -16,20 +16,20 @@ import Badge from '@mui/material/Badge'
 
 export default function CartDrawer(props) {
 
-    const { cart } = props
+  const { cart } = props
 
   const [state, setState] = React.useState({
     right: false,
   });
 
-  const toggleDrawer = (anchor, open) => (event) => {
+  const toggleDrawer = (anchor, open) => () => {
     setState({ ...state, [anchor]: open });
   };
 
   const list = (anchor) => (
     <Box
       sx={{ width: 400 }}
-      role="presentation"
+      role='presentation'
     >
       <List>
         <CloseIcon onClick={toggleDrawer(anchor, false)} />
@@ -37,20 +37,20 @@ export default function CartDrawer(props) {
       </List>
       <Divider />
       <List>
-          <ListItemIcon>
+        <ListItemIcon>
           <ListItem>
             <Cart cart={cart} products={props.products} removeFromCart={props.removeFromCart} addToCart={props.addToCart}/>
           </ListItem>
-          </ListItemIcon>
-          {cart.addedProducts.length > 0 ? 
+        </ListItemIcon>
+        {cart.addedProducts.length > 0 ? 
           <ListItemIcon>
-              <ListItem>
-                  <Link to='/checkout' style={{ textDecoration: 'none' }}>
-                  <Button variant="contained" size="small" onClick={toggleDrawer(anchor, false)}>Checkout</Button>
-                  </Link>
-              </ListItem>
+            <ListItem>
+              <Link to='/checkout' style={{ textDecoration: 'none' }}>
+                <Button variant='contained' size='small' onClick={toggleDrawer(anchor, false)}>Checkout</Button>
+              </Link>
+            </ListItem>
           </ListItemIcon>
-        : null }
+          : null }
       </List>
     </Box>
   );
@@ -60,9 +60,9 @@ export default function CartDrawer(props) {
       {['right'].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>
-              <Badge badgeContent={cart.addedProducts.reduce((a, product) => a + product.quantity, 0)} color='primary'>
+            <Badge badgeContent={cart.addedProducts.reduce((a, product) => a + product.quantity, 0)} color='primary'>
               <ShoppingBasketIcon style={{color: 'white'}}/>
-              </Badge>
+            </Badge>
           </Button>
           <Drawer
             anchor={anchor}
