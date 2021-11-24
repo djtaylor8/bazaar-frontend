@@ -13,9 +13,9 @@ import Search from '../search/Search'
 import { useState } from 'react'
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   media: {
-      objectFit: 'cover',
+    objectFit: 'cover',
   },
 }));
 
@@ -37,7 +37,7 @@ export default function ProductsList(props) {
 
   const handleAdd = (e) => {
     props.addToCart(e.target.id)
-}
+  }
   
   const productClasses = useStyles();
 
@@ -45,39 +45,39 @@ export default function ProductsList(props) {
   return (
     <div>
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
-    <Grid container spacing={2} style={{ marginTop: '5rem', marginBottom: '5rem'}}>
-    {filteredProducts.map((product) => (
-      <Grid item md={3} key={product.id}>
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        className={productClasses.media}
-        component="img"
-        alt={product.name}
-        image={product.image}
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {product.name}
-        </Typography>
-        <Typography variant="body2" color="text.secondary" style={{marginTop: '1rem'}}>
-          ${product.price}
-        </Typography>
-      </CardContent>
-      <CardActions>
-      <Link to={`${url}/${product.id}`} className="productLinks">
-        <Button size="small">Learn More</Button>
-      </Link>
-      {props.user.isAuth && (
-        <Button id={product.id} size="small" onClick={(e) => handleAdd(e)}>Add To Cart</Button>
-      )}
-      </CardActions>
-    </Card>
-    </Grid>
-    ))}
-    </Grid>
-    <Route path={`${path}/:productId`}>
-       <Product products={products} user={props.user}/>
-     </Route>
+      <Grid container spacing={2} style={{ marginTop: '5rem', marginBottom: '5rem'}}>
+        {filteredProducts.map((product) => (
+          <Grid item md={3} key={product.id}>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardMedia
+                className={productClasses.media}
+                component='img'
+                alt={product.name}
+                image={product.image}
+              />
+              <CardContent>
+                <Typography gutterBottom variant='h5' component='div'>
+                  {product.name}
+                </Typography>
+                <Typography variant='body2' color='text.secondary' style={{marginTop: '1rem'}}>
+                  ${product.price}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Link to={`${url}/${product.id}`} className='productLinks'>
+                  <Button size='small'>Learn More</Button>
+                </Link>
+                {props.user.isAuth && (
+                  <Button id={product.id} size='small' onClick={(e) => handleAdd(e)}>Add To Cart</Button>
+                )}
+              </CardActions>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+      <Route path={`${path}/:productId`}>
+        <Product products={products} user={props.user}/>
+      </Route>
     </div>
   );
 }
