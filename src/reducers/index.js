@@ -4,9 +4,9 @@ import productsReducer from './productsReducer';
 import usersReducer from './usersReducer';
 
 const rootReducer = combineReducers({
-    products: productsReducer,
-    user: usersReducer,
-    cart: cartReducer,
+  products: productsReducer,
+  user: usersReducer,
+  cart: cartReducer,
 })
 
 export default rootReducer;

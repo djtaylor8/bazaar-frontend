@@ -17,9 +17,9 @@ const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
-     <Elements stripe={stripePromise}>
-        <App />
-     </Elements>  
+    <Elements stripe={stripePromise}>
+      <App />
+    </Elements>  
   </Provider>,
   document.getElementById('root')
 );
