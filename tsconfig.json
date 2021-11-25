@@ -1,14 +1,35 @@
 {
   "compilerOptions": {
     "target": "es2016",
-    "module": "commonjs",
+    "module": "esnext",
     "noImplicitAny": true,
+    "esModuleInterop": true,
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
     "strict": true,
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "checkJs": false,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
   "files": [
-    "src/components/home/Welcome.tsx"
+    "src/components/home/Welcome.tsx",
+    "src/components/products/ProductImage.tsx"
+  ],
+  "include": [
+    "src"
   ]
 }
