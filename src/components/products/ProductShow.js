@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid } from '@material-ui/core';
 import { useParams } from 'react-router-dom';
 import ProductImage from './ProductImage.tsx';
-import ProductInfo from './ProductInfo';
+import ProductInfo from './ProductInfo.tsx';
 
 
 function Product(props) {

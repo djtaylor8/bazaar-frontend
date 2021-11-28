@@ -25,10 +25,6 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "files": [
-    "src/components/home/Welcome.tsx",
-    "src/components/products/ProductImage.tsx"
-  ],
   "include": [
     "src"
   ]

@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { MouseEvent } from 'react'; 
 import { Grid, Typography, Divider, Button, Box } from '@material-ui/core'
 import {  useParams } from 'react-router-dom';
 
+type Props = {
+  product: {
+    listing_type: string;
+    name: string;
+    description: string;
+    price: number;
+  },
+  user: {
+    isAuth: boolean;
+  },
+  addToCart: (e: MouseEvent) => void;
+};
 
-const ProductInfo = ({ product, addToCart, user }) => {
 
-  const { productId } = useParams()
+const ProductInfo: React.FC<Props> = ({ product, addToCart, user }) => {
+
+  const { productId } = useParams<{productId?: string}>()
 
   return (
     <Grid container direction='column' style={{ height: '100%', backdropFilter: 'blur(400px)' }}>
