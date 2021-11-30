@@ -8,15 +8,12 @@ import ProductInfo from './ProductInfo.tsx';
 
 type Props = {
   products: {
-    products: {
       id: number;
       price: number;
       description: string;
       listing_type: string;
       image: string;
-    }[],
-    loading: boolean;
-  };
+  }[];
   addToCart: (e: MouseEvent) => void;
   user: {
     id: number;
@@ -28,7 +25,7 @@ const Product: React.FC<Props> = ({ products, addToCart, user }) => {
   const { productId } = useParams<{productId: string}>()
   
 
-  const product = products.products.find((product: { id: number; }) => product.id === parseInt(productId));
+  const product = products.find((product: { id: number; }) => product.id === parseInt(productId));
 
   return (
     <div>

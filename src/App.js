@@ -21,6 +21,7 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchProducts();
   }
+  
 
   render() {
     return (
@@ -51,7 +52,7 @@ class App extends Component {
             <AuthRoute path='/cart' type='private' />
         
             <Route path='/products/:productId'>
-              <Product products={this.props.products} addToCart={this.props.addToCart} user={this.props.user} />
+              <Product products={this.props.products.products} addToCart={this.props.addToCart} user={this.props.user} />
             </Route>
 
             <Route path='/products'>

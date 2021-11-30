@@ -40,7 +40,6 @@ export default function ProductsList(props) {
   }
   
   const productClasses = useStyles();
-
   
   return (
     <div>
