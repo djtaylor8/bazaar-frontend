@@ -6,7 +6,7 @@ import { googleLogin, logout } from './actions/sessionActions';
 import { addToCart, removeProductFromCart, clearCart } from './actions/cartActions';
 import { addOrder } from './actions/orderActions';
 import ProductsList from './components/products/ProductsList';
-import Product from './components/products/ProductShow'
+import Product from './components/products/ProductShow.tsx'
 import Logout from './components/users/Logout';
 import AuthRoute from './components/auth/AuthRoute';
 import NavBar from './components/navigation/NavBar';

@@ -4,10 +4,12 @@ import {  useParams } from 'react-router-dom';
 
 type Props = {
   product: {
+    id: number;
     listing_type: string;
     name: string;
     description: string;
     price: number;
+    image: string
   },
   user: {
     isAuth: boolean;

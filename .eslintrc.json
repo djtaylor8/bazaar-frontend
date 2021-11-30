@@ -15,12 +15,23 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "import"
     ],
     "rules": {
         "indent": [
             "error",
             2
+        ],
+        "import/extensions": [
+            "warn",
+            "ignorePackages",
+            {
+                "ts": "never",
+                "tsx": "never",
+                "js": "never",
+                "jsx": "never"
+            }
         ],
         "linebreak-style": [
             "error",
