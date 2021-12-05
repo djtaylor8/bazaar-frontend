@@ -45,13 +45,8 @@ const filterProducts = (products, search) => {
 
 const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
   const { url, path } = useRouteMatch()
-  const  { products } = props.products;
   const [searchQuery, setSearchQuery] = useState('')
   const filteredProducts = filterProducts(products, searchQuery)
-
-  const handleAdd = (e) => {
-    props.addToCart(e.target.id)
-  }
   
   const productClasses = useStyles();
   
@@ -80,8 +75,8 @@ const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
                 <Link to={`${url}/${product.id}`} className='productLinks'>
                   <Button size='small'>Learn More</Button>
                 </Link>
-                {props.user.isAuth && (
-                  <Button id={product.id} size='small' onClick={(e) => handleAdd(e)}>Add To Cart</Button>
+                {user.isAuth && (
+                  <Button id={product.id} size='small' onClick={(e: MouseEvent<Element, globalThis.MouseEvent>) => addToCart(e)}>Add To Cart</Button>
                 )}
               </CardActions>
             </Card>
@@ -89,7 +84,7 @@ const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
         ))}
       </Grid>
       <Route path={`${path}/:productId`}>
-        <Product products={products} user={props.user}/>
+        <Product products={products} user={user}/>
       </Route>
     </div>
   );
