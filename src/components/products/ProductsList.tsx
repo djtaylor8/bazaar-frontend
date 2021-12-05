@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, MouseEvent } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -8,9 +8,24 @@ import Typography from '@mui/material/Typography';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Route, Link, useRouteMatch } from 'react-router-dom';
+//@ts-ignore
 import Product from './ProductShow.tsx'
 import Search from '../search/Search'
 
+type Props = {
+  products: {
+      id: number;
+      price: number;
+      description: string;
+      listing_type: string;
+      image: string;
+  }[];
+  addToCart: (e: MouseEvent) => void;
+  user: {
+    id: number;
+    isAuth: boolean;
+  };
+}
 
 const useStyles = makeStyles(() => ({
   media: {
@@ -28,7 +43,7 @@ const filterProducts = (products, search) => {
   });
 };
 
-export default function ProductsList(props) {
+const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
   const { url, path } = useRouteMatch()
   const  { products } = props.products;
   const [searchQuery, setSearchQuery] = useState('')
@@ -79,3 +94,5 @@ export default function ProductsList(props) {
     </div>
   );
 }
+
+export default ProductsList;
