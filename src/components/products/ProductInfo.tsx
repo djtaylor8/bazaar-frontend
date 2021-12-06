@@ -14,7 +14,7 @@ type Props = {
   user: {
     isAuth: boolean;
   },
-  addToCart: (e: any) => void;
+  addToCart: (e: string | null) => void;
 };
 
 
@@ -32,7 +32,7 @@ const ProductInfo: React.FC<Props> = ({ product, addToCart, user }) => {
         <Typography align='center' variant='h5'>${product.price}</Typography>
       </Box>
       {user.isAuth ? (
-        <Button data-id={productId} onClick={(e: any) => addToCart((e.currentTarget).getAttribute('data-id'))} variant='contained' color='primary' style={{ marginTop: 'auto' }}>Add To Cart</Button>
+        <Button data-id={productId} onClick={(e) => addToCart((e.currentTarget).getAttribute('data-id'))} variant='contained' color='primary' style={{ marginTop: 'auto' }}>Add To Cart</Button>
       ) : 
         <Typography align='center' variant='subtitle2'>Please login to add item to cart</Typography>
       }

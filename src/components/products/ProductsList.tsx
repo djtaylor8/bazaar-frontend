@@ -21,7 +21,7 @@ type Props = {
       listing_type: string;
       image: string;
   }[];
-  addToCart: (e: any) => void;
+  addToCart: (e: string | null) => void;
   user: {
     id: number;
     isAuth: boolean;
@@ -87,7 +87,7 @@ const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
                   <Button size='small'>Learn More</Button>
                 </Link>
                 {user.isAuth && (
-                  <Button data-id={product.id} size='small' onClick={(e: any) => addToCart((e.currentTarget).getAttribute('data-id'))}>Add To Cart</Button>
+                  <Button data-id={product.id} size='small' onClick={(e) => addToCart((e.currentTarget).getAttribute('data-id'))}>Add To Cart</Button>
                 )}
               </CardActions>
             </Card>
