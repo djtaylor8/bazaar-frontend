@@ -9,6 +9,7 @@ import ProductInfo from './ProductInfo.tsx';
 type Props = {
   products: {
       id: number;
+      name: string;
       price: number;
       description: string;
       listing_type: string;
@@ -34,7 +35,7 @@ const Product: React.FC<Props> = ({ products, addToCart, user }) => {
           <ProductImage image={product?.image} />
         </Grid>
         <Grid item sm={8}>
-          <ProductInfo product={product} onClick={(e: React.MouseEvent<Element, globalThis.MouseEvent>) => addToCart(e)} user={user}/>
+          <ProductInfo product={product} addToCart={addToCart} user={user}/>
         </Grid>
       </Grid>
     </div>

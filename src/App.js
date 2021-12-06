@@ -5,7 +5,7 @@ import { fetchProducts } from './actions/productActions';
 import { googleLogin, logout } from './actions/sessionActions';
 import { addToCart, removeProductFromCart, clearCart } from './actions/cartActions';
 import { addOrder } from './actions/orderActions';
-import ProductsList from './components/products/ProductsList';
+import ProductsList from './components/products/ProductsList.tsx';
 import Product from './components/products/ProductShow.tsx'
 import Logout from './components/users/Logout';
 import AuthRoute from './components/auth/AuthRoute';
@@ -56,7 +56,7 @@ class App extends Component {
             </Route>
 
             <Route path='/products'>
-              <ProductsList products={this.props.products} loading={this.props.loading} addToCart={this.props.addToCart} user={this.props.user}/>
+              <ProductsList products={this.props.products.products} loading={this.props.loading} addToCart={this.props.addToCart} user={this.props.user}/>
             </Route>
 
             <Route exact path='/'>

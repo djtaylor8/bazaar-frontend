@@ -1,9 +1,9 @@
-import React, { useState, MouseEvent } from 'react';
+import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
+import { Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -15,17 +15,28 @@ import Search from '../search/Search'
 type Props = {
   products: {
       id: number;
+      name: string;
       price: number;
       description: string;
       listing_type: string;
       image: string;
   }[];
-  addToCart: (e: MouseEvent) => void;
+  addToCart: (e: any) => void;
   user: {
     id: number;
     isAuth: boolean;
   };
 }
+
+interface Products {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  listing_type: string;
+  image: string;
+}
+
 
 const useStyles = makeStyles(() => ({
   media: {
@@ -33,7 +44,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const filterProducts = (products, search) => {
+const filterProducts = (products: Products[], search?: string) => {
   if (!search) {
     return products
   }
@@ -76,7 +87,7 @@ const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
                   <Button size='small'>Learn More</Button>
                 </Link>
                 {user.isAuth && (
-                  <Button id={product.id} size='small' onClick={(e: MouseEvent<Element, globalThis.MouseEvent>) => addToCart(e)}>Add To Cart</Button>
+                  <Button data-id={product.id} size='small' onClick={(e: any) => addToCart((e.currentTarget).getAttribute('data-id'))}>Add To Cart</Button>
                 )}
               </CardActions>
             </Card>
@@ -84,7 +95,7 @@ const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
         ))}
       </Grid>
       <Route path={`${path}/:productId`}>
-        <Product products={products} user={user}/>
+        <Product products={products} user={user} addToCart={addToCart} />
       </Route>
     </div>
   );
