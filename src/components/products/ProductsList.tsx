@@ -6,7 +6,6 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
 // import { Button } from '@mui/material';
-// import Typography from '@mui/material/Typography';
 import { Route, useRouteMatch } from 'react-router-dom';
 //@ts-ignore
 import Product from './ProductShow.tsx'
@@ -59,7 +58,7 @@ const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', margin: '0 auto', alignItems: 'center', justifyContent: 'center' }}>
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
-      <ImageList sx={{ width: 700, height: 600 }} cols={3}>
+      <ImageList sx={{ width: 700, height: 600 }} cols={4}>
         {filteredProducts.map((product) => (
           <ImageListItem key={product.id}>
             <img
