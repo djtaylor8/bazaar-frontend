@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
+// import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { Button } from '@mui/material';
@@ -45,7 +45,7 @@ const useStyles = makeStyles(() => ({
     alignItems: 'center',
     justifyContent: 'center',
     height: 200,
-    width: 345,
+    width: 300,
   },
   img: {
     height: '100%',
@@ -76,7 +76,7 @@ const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
       <Grid container spacing={2} style={{ marginTop: '5rem', marginBottom: '5rem'}}>
         {filteredProducts.map((product) => (
           <Grid item md={3} key={product.id}>
-            <Card sx={{ width: 345, height: 300 }}>
+            <Card sx={{ width: 345, height: 345 }}>
               <div className={productClasses.container}>
                 <CardMedia
                   className={productClasses.img}
@@ -86,21 +86,19 @@ const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
                 />
               </div>
               <CardContent>
-                <Typography gutterBottom variant='h5' component='div'>
+                <Typography gutterBottom variant='body1' component='div'>
                   {product.name}
                 </Typography>
-                <Typography variant='body2' color='text.secondary' style={{marginTop: '1rem'}}>
+                <Typography variant='body2' color='text.secondary'>
                   ${product.price}
                 </Typography>
-              </CardContent>
-              <CardActions>
                 <Link to={`${url}/${product.id}`} className='productLinks'>
                   <Button size='small'>Learn More</Button>
                 </Link>
                 {user.isAuth && (
                   <Button data-id={product.id} size='small' onClick={(e) => addToCart((e.currentTarget).getAttribute('data-id'))}>Add To Cart</Button>
                 )}
-              </CardActions>
+              </CardContent>
             </Card>
           </Grid>
         ))}
