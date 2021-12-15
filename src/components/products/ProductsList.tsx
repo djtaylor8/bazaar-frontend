@@ -39,9 +39,18 @@ interface Products {
 
 
 const useStyles = makeStyles(() => ({
-  media: {
-    objectFit: 'cover',
+  container: {
+    display: 'flex',
+    margin: '0 auto',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 200,
+    width: 345,
   },
+  img: {
+    height: '100%',
+    width: '100%'
+  }
 }));
 
 const filterProducts = (products: Products[], search?: string) => {
@@ -67,13 +76,15 @@ const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
       <Grid container spacing={2} style={{ marginTop: '5rem', marginBottom: '5rem'}}>
         {filteredProducts.map((product) => (
           <Grid item md={3} key={product.id}>
-            <Card sx={{ maxWidth: 345 }}>
-              <CardMedia
-                className={productClasses.media}
-                component='img'
-                alt={product.name}
-                image={product.image}
-              />
+            <Card sx={{ width: 345, height: 300 }}>
+              <div className={productClasses.container}>
+                <CardMedia
+                  className={productClasses.img}
+                  component='img'
+                  alt={product.name}
+                  image={product.image}
+                />
+              </div>
               <CardContent>
                 <Typography gutterBottom variant='h5' component='div'>
                   {product.name}
