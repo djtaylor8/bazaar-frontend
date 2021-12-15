@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import Card from '@mui/material/Card';
-// import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import { Button } from '@mui/material';
-import Typography from '@mui/material/Typography';
-import { Grid } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import { Route, Link, useRouteMatch } from 'react-router-dom';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import IconButton from '@mui/material/IconButton';
+import InfoIcon from '@mui/icons-material/Info';
+// import { Button } from '@mui/material';
+// import Typography from '@mui/material/Typography';
+// import { Route, Link, useRouteMatch } from 'react-router-dom';
 //@ts-ignore
-import Product from './ProductShow.tsx'
+// import Product from './ProductShow.tsx'
 import Search from '../search/Search'
 
 type Props = {
@@ -37,22 +36,6 @@ interface Products {
   image: string;
 }
 
-
-const useStyles = makeStyles(() => ({
-  container: {
-    display: 'flex',
-    margin: '0 auto',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 200,
-    width: 300,
-  },
-  img: {
-    height: '100%',
-    width: '100%'
-  }
-}));
-
 const filterProducts = (products: Products[], search?: string) => {
   if (!search) {
     return products
@@ -63,51 +46,50 @@ const filterProducts = (products: Products[], search?: string) => {
   });
 };
 
-const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
-  const { url, path } = useRouteMatch()
+const ProductsList: React.FC<Props> = ({ products }) => {
+  // const { url, path } = useRouteMatch()
   const [searchQuery, setSearchQuery] = useState('')
   const filteredProducts = filterProducts(products, searchQuery)
-  
-  const productClasses = useStyles();
-  
+    
   return (
     <div>
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
-      <Grid container spacing={2} style={{ marginTop: '5rem', marginBottom: '5rem'}}>
+      <ImageList sx={{ width: 600, height: 600 }}>
         {filteredProducts.map((product) => (
-          <Grid item md={3} key={product.id}>
-            <Card sx={{ width: 345, height: 400 }}>
-              <div className={productClasses.container}>
-                <CardMedia
-                  className={productClasses.img}
-                  component='img'
-                  alt={product.name}
-                  image={product.image}
-                />
-              </div>
-              <CardContent style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', margin: '0 auto', marginTop: '1rem' }}>
-                <Typography variant='body1' component='div'>
-                  {product.name}
-                </Typography>
-                <Typography variant='body1' color='text.secondary'>
-                  ${product.price}
-                </Typography>
-                <Link to={`${url}/${product.id}`} style={{ textDecoration: 'none' }}>
-                  <Button size='small'>Learn More</Button>
-                </Link>
-                {user.isAuth && (
-                  <Button data-id={product.id} size='small' onClick={(e) => addToCart((e.currentTarget).getAttribute('data-id'))}>Add To Cart</Button>
-                )}
-              </CardContent>
-            </Card>
-          </Grid>
+          <ImageListItem key={product.id}>
+            <img
+              src={`${product.image}?w=248&fit=crop&auto=format`}
+              srcSet={`${product.image}?w=248&fit=crop&auto=format&dpr=2 2x`}
+              alt={product.name}
+              loading="lazy"
+            />
+            <ImageListItemBar
+              title={product.name}
+              subtitle={`$ ${product.price}`}
+              actionIcon={
+                <IconButton
+                  sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                  aria-label={`info about ${product.name}`}
+                >
+                  <InfoIcon />
+                </IconButton>
+              }
+            />
+          </ImageListItem>
         ))}
-      </Grid>
-      <Route path={`${path}/:productId`}>
+      </ImageList>
+      {/* <Route path={`${path}/:productId`}>
         <Product products={products} user={user} addToCart={addToCart} />
-      </Route>
+      </Route> */}
     </div>
   );
 }
 
 export default ProductsList;
+
+{/* <Link to={`${url}/${product.id}`} style={{ textDecoration: 'none' }}>
+<Button size='small'>Learn More</Button>
+</Link>
+{user.isAuth && (
+<Button data-id={product.id} size='small' onClick={(e) => addToCart((e.currentTarget).getAttribute('data-id'))}>Add To Cart</Button>
+)} */}
