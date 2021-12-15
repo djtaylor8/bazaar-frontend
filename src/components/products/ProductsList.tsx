@@ -48,7 +48,7 @@ const filterProducts = (products: Products[], search?: string) => {
 const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
   const { url, path } = useRouteMatch()
   let history = useHistory();
-  const [searchQuery, setSearchQuery] = useState('')
+  const [searchQuery, setSearchQuery] = useState()
   const filteredProducts = filterProducts(products, searchQuery)
 
 
@@ -59,7 +59,7 @@ const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', margin: '0 auto', alignItems: 'center', justifyContent: 'center' }}>
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
-      <ImageList sx={{ width: 700, height: 600 }} cols={4}>
+      <ImageList sx={{ width: 700, height: 600 }} cols={searchQuery ? 2 : 4}>
         {filteredProducts.map((product) => (
           <ImageListItem key={product.id}>
             <img
