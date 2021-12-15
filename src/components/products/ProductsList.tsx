@@ -76,7 +76,7 @@ const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
       <Grid container spacing={2} style={{ marginTop: '5rem', marginBottom: '5rem'}}>
         {filteredProducts.map((product) => (
           <Grid item md={3} key={product.id}>
-            <Card sx={{ width: 345, height: 345 }}>
+            <Card sx={{ width: 345, height: 400 }}>
               <div className={productClasses.container}>
                 <CardMedia
                   className={productClasses.img}
@@ -85,14 +85,14 @@ const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
                   image={product.image}
                 />
               </div>
-              <CardContent>
-                <Typography gutterBottom variant='body1' component='div'>
+              <CardContent style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', margin: '0 auto', marginTop: '1rem' }}>
+                <Typography variant='body1' component='div'>
                   {product.name}
                 </Typography>
-                <Typography variant='body2' color='text.secondary'>
+                <Typography variant='body1' color='text.secondary'>
                   ${product.price}
                 </Typography>
-                <Link to={`${url}/${product.id}`} className='productLinks'>
+                <Link to={`${url}/${product.id}`} style={{ textDecoration: 'none' }}>
                   <Button size='small'>Learn More</Button>
                 </Link>
                 {user.isAuth && (
