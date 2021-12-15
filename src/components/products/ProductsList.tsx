@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, MouseEvent } from 'react';
+import { useHistory } from 'react-router-dom';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
@@ -6,9 +7,9 @@ import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
 // import { Button } from '@mui/material';
 // import Typography from '@mui/material/Typography';
-// import { Route, Link, useRouteMatch } from 'react-router-dom';
+import { Route, useRouteMatch } from 'react-router-dom';
 //@ts-ignore
-// import Product from './ProductShow.tsx'
+import Product from './ProductShow.tsx'
 import Search from '../search/Search'
 
 type Props = {
@@ -46,10 +47,14 @@ const filterProducts = (products: Products[], search?: string) => {
   });
 };
 
-const ProductsList: React.FC<Props> = ({ products }) => {
-  // const { url, path } = useRouteMatch()
+const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
+  const { url, path } = useRouteMatch()
+  let history = useHistory();
   const [searchQuery, setSearchQuery] = useState('')
   const filteredProducts = filterProducts(products, searchQuery)
+  const handleClick = (e: MouseEvent) => {
+    history.push(`${url}/${(e.currentTarget).getAttribute('data-id')}`)
+  }
     
   return (
     <div style={{ display: 'flex', flexDirection: 'column', margin: '0 auto', alignItems: 'center', justifyContent: 'center' }}>
@@ -71,25 +76,23 @@ const ProductsList: React.FC<Props> = ({ products }) => {
                   sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
                   aria-label={`info about ${product.name}`}
                 >
-                  <InfoIcon />
+                  <InfoIcon data-id={product.id} onClick={(e) => handleClick(e)}/>
                 </IconButton>
               }
             />
           </ImageListItem>
         ))}
       </ImageList>
-      {/* <Route path={`${path}/:productId`}>
+      <Route path={`${path}/:productId`}>
         <Product products={products} user={user} addToCart={addToCart} />
-      </Route> */}
+      </Route>
     </div>
   );
 }
 
 export default ProductsList;
 
-{/* <Link to={`${url}/${product.id}`} style={{ textDecoration: 'none' }}>
-<Button size='small'>Learn More</Button>
-</Link>
+{/*
 {user.isAuth && (
 <Button data-id={product.id} size='small' onClick={(e) => addToCart((e.currentTarget).getAttribute('data-id'))}>Add To Cart</Button>
 )} */}
