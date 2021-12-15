@@ -68,14 +68,17 @@ const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
               loading="lazy"
             />
             <ImageListItemBar
+              data-id={product.id}
               title={product.name}
+              style={{ cursor: 'pointer' }}
               subtitle={`$ ${product.price}`}
+              onClick={(e) => handleClick(e)}
               actionIcon={
                 <IconButton
                   sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
                   aria-label={`info about ${product.name}`}
                 >
-                  <InfoIcon data-id={product.id} onClick={(e) => handleClick(e)}/>
+                  <InfoIcon />
                 </IconButton>
               }
             />
