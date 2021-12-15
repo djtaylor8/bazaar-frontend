@@ -52,9 +52,9 @@ const ProductsList: React.FC<Props> = ({ products }) => {
   const filteredProducts = filterProducts(products, searchQuery)
     
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', margin: '0 auto', alignItems: 'center', justifyContent: 'center' }}>
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
-      <ImageList sx={{ width: 600, height: 600 }}>
+      <ImageList sx={{ width: 700, height: 600 }} cols={3}>
         {filteredProducts.map((product) => (
           <ImageListItem key={product.id}>
             <img
