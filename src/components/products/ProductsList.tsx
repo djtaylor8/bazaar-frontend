@@ -5,7 +5,6 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
-// import { Button } from '@mui/material';
 import { Route, useRouteMatch } from 'react-router-dom';
 //@ts-ignore
 import Product from './ProductShow.tsx'
@@ -51,10 +50,12 @@ const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
   let history = useHistory();
   const [searchQuery, setSearchQuery] = useState('')
   const filteredProducts = filterProducts(products, searchQuery)
+
+
   const handleClick = (e: MouseEvent) => {
     history.push(`${url}/${(e.currentTarget).getAttribute('data-id')}`)
   }
-    
+ 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', margin: '0 auto', alignItems: 'center', justifyContent: 'center' }}>
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
@@ -93,8 +94,3 @@ const ProductsList: React.FC<Props> = ({ products, addToCart, user }) => {
 }
 
 export default ProductsList;
-
-{/*
-{user.isAuth && (
-<Button data-id={product.id} size='small' onClick={(e) => addToCart((e.currentTarget).getAttribute('data-id'))}>Add To Cart</Button>
-)} */}
