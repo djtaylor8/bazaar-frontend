@@ -8,9 +8,10 @@ import InfoIcon from '@mui/icons-material/Info';
 import { Route, useRouteMatch } from 'react-router-dom';
 //@ts-ignore
 import Product from './ProductShow.tsx'
-import Search from '../search/Search'
+//@ts-ignore
+import Search from '../search/Search.tsx'
 
-type Props = {
+interface Props {
   products: {
       id: number;
       name: string;

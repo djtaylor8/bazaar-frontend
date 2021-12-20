@@ -49,8 +49,13 @@ const useStyles = makeStyles((theme) =>
     },
   })
 );
+
+interface Props {
+  searchQuery: string;
+  setSearchQuery: (e: string | null) => void;
+}
   
-export default function Search({ searchQuery, setSearchQuery }) {
+const Search: React.FC<Props> = ({ searchQuery, setSearchQuery }) => {
   const classes = useStyles();
   return (
     <div className={classes.search}>
@@ -65,8 +70,10 @@ export default function Search({ searchQuery, setSearchQuery }) {
         }}
         inputProps={{ 'aria-label': 'search ' }}
         value={searchQuery}
-        onInput={e => setSearchQuery(e.target.value)}
+        onInput={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
       />
     </div>
   );
 }
+
+export default Search;
