@@ -7,7 +7,7 @@ import { addToCart, removeProductFromCart, clearCart } from './actions/cartActio
 import { addOrder } from './actions/orderActions';
 import ProductsList from './components/products/ProductsList.tsx';
 import Product from './components/products/ProductShow.tsx'
-import Logout from './components/users/Logout';
+import Logout from './components/users/Logout.tsx';
 import AuthRoute from './components/auth/AuthRoute';
 import NavBar from './components/navigation/NavBar';
 import Checkout from './components/checkout/Checkout'

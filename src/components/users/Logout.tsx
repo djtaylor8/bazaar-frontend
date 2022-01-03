@@ -1,15 +1,19 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom'
 import { GoogleLogout } from 'react-google-login';
-import { Grid } from '@material-ui/core';
+import { Grid, IconButton } from '@material-ui/core';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 
-const Logout = (props) => {
+interface Props {
+  logout: () => void;
+}
+
+const Logout: React.FC<Props> = ({ logout }) => {
   let history = useHistory()
 
   const logoutUser = () => {
-    props.logout()
+    logout()
     history.push('/')
   }
 
@@ -19,9 +23,12 @@ const Logout = (props) => {
         <GoogleLogout
           clientId='8013933409-b2i0rd6n1i5i67hen1k874pqdjr4oj4r.apps.googleusercontent.com'
           render={renderProps => (
-            <LogoutIcon onClick={renderProps.onClick} disabled={renderProps.disabled}/>
+            <IconButton onClick={renderProps.onClick} disabled={renderProps.disabled}>
+              <LogoutIcon />
+            </IconButton>
           )}
           onLogoutSuccess={logoutUser}
+          //@ts-ignore
           cookiePolicy={'single_host_origin'}
         /> 
       </Grid>
