@@ -28,8 +28,6 @@ const Logout: React.FC<Props> = ({ logout }) => {
             </IconButton>
           )}
           onLogoutSuccess={logoutUser}
-          //@ts-ignore
-          cookiePolicy={'single_host_origin'}
         /> 
       </Grid>
     </div>
