@@ -91,7 +91,7 @@ const  NavBar = (props) => {
             { props.user.isAuth && (
               <div>                  
                 <MenuItem onClick={handleOrders}>My orders</MenuItem>
-                <MenuItem onClick={handleLogout}>Sign out<Logout logout={props.logout}/></MenuItem>
+                <MenuItem onClick={handleLogout}>Sign out<Logout logout={props.logout} text={'Sign out'} /></MenuItem>
               </div> 
             )}
           </Menu>
