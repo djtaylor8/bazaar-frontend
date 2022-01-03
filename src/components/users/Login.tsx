@@ -3,11 +3,14 @@ import { GoogleLogin } from 'react-google-login';
 import { Grid } from '@material-ui/core'
 import GoogleIcon from '@mui/icons-material/Google';
 
+interface Props {
+  login: (response: {}) => void;
+}
 
-const Login = (props) => {
+const Login: React.FC<Props> = ({ login }) => {
 
-  const responseGoogle = (response) => {
-    props.login(response)
+  const responseGoogle = (response: {}) => {
+    login(response)
   }
 
   return (

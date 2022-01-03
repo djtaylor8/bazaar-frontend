@@ -8,7 +8,7 @@ import { googleLogin, logout } from '../../actions/sessionActions';
 import SortIcon from '@mui/icons-material/Sort';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import Login from '../users/Login'
+import Login from '../users/Login.tsx'
 import Logout from '../users/Logout'
 import Avatar from '@mui/material/Avatar';
 
