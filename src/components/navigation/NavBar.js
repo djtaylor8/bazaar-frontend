@@ -85,13 +85,15 @@ const  NavBar = (props) => {
             onClose={handleClose}
           >
                 
-            <MenuItem onClick={handleHome}>Home</MenuItem>
-            <MenuItem onClick={handleShop}>Shop</MenuItem>
+            <MenuItem style={{ background: 'none' }} onClick={handleHome}>Home</MenuItem>
+            <MenuItem style={{ background: 'none' }} onClick={handleShop}>Shop</MenuItem>
                 
             { props.user.isAuth && (
               <div>                  
-                <MenuItem onClick={handleOrders}>My orders</MenuItem>
-                <MenuItem onClick={handleLogout}>Sign out<Logout logout={props.logout} text={'Sign out'} /></MenuItem>
+                <MenuItem style={{ background: 'none' }} onClick={handleOrders}>My orders</MenuItem>
+                <div onClick={handleLogout}>
+                  <Logout logout={props.logout} />
+                </div>
               </div> 
             )}
           </Menu>
