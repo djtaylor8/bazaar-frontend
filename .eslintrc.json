@@ -1,54 +1,32 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "import"],
+  "rules": {
+    "indent": ["error", 2],
+    "import/extensions": [
+      "warn",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never",
+        "js": "never",
+        "jsx": "never"
+      }
     ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react",
-        "import"
-    ],
-    "rules": {
-        "indent": [
-            "error",
-            2
-        ],
-        "import/extensions": [
-            "warn",
-            "ignorePackages",
-            {
-                "ts": "never",
-                "tsx": "never",
-                "js": "never",
-                "jsx": "never"
-            }
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "react/prop-types": [
-            0
-        ],
-        "no-case-declarations": [
-            0
-        ],
-        "no-undef": [
-            0
-        ]
-    }
+    "linebreak-style": ["error", "unix"],
+    "react/prop-types": [0],
+    "no-case-declarations": [0],
+    "no-undef": [0]
+  }
 }

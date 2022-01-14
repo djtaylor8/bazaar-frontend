@@ -2,7 +2,6 @@ import React from 'react';
 import { useHistory } from 'react-router-dom'
 import { GoogleLogout } from 'react-google-login';
 import { Grid } from '@material-ui/core';
-// import LogoutIcon from '@mui/icons-material/Logout';
 import MenuItem from '@mui/material/MenuItem';
 
 
