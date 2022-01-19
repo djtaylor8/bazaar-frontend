@@ -28,9 +28,6 @@ const OrdersHistory: React.FC<Props> = ({ user }) => {
   const { orderHistory } = user;
   orderHistory.sort((a: any, b: any) => (b.created_at > a.created_at ? 1 : -1));
 
-  // eslint-disable-next-line no-debugger
-  debugger;
-
   return (
     <Grid
       container
