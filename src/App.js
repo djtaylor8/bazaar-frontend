@@ -15,7 +15,7 @@ import Logout from "./components/users/Logout.tsx";
 import AuthRoute from "./components/auth/AuthRoute";
 import NavBar from "./components/navigation/NavBar";
 import Checkout from "./components/checkout/Checkout";
-import OrdersHistory from "./components/orders/Orders";
+import OrdersHistory from "./components/orders/Orders.tsx";
 import OrderConfirmation from "./components/notifications/OrderConfirmation";
 import Welcome from "./components/home/Welcome.tsx";
 import Error from "./components/notifications/Error";
